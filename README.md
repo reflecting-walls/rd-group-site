@@ -19,6 +19,16 @@ A static, pre-rendered site with a browser-based admin and **no backend**. All c
 5. On the Worker (`rd-group-site`) → **Settings → Domains & Routes**, disable the **workers.dev** URL and **Preview URLs**, so `/admin/` can't be reached through a back-door address.
 6. Add the build variable `ADMIN=1` on the Worker (Settings → Build → Variables) and redeploy.
 
+## Tracking and verification
+
+Admin → Business info → **Tracking and verification** (or `data/business.json` directly) holds `gtmId`, `ga4Id`, `googleSiteVerification`, `bingSiteVerification`, `headCode` and `bodyCode`. The build adds them to every page, including the card. IDs are format-checked; head/body code is pasted as-is. Use Google Tag Manager for GA4, Google Ads and pixels. `assets/js/site.js` pushes these `dataLayer` events for GTM Custom Event triggers:
+
+| Event | Fires when |
+|---|---|
+| `phone_click` | A tap-to-call link is clicked (`click_location`: header, footer, mobile_bar, content) |
+| `email_click` | A mailto link is clicked |
+| `generate_lead` | The estimate form is sent successfully (`project`) |
+
 ## Folders
 
 | Path | What it is |

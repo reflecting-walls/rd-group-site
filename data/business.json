@@ -44,5 +44,11 @@
     "latitude": 42.1103,
     "longitude": -88.0342
   },
-  "formEndpoint": "/api/estimate"
+  "formEndpoint": "/api/estimate",
+  "gtmId": "",
+  "ga4Id": "",
+  "googleSiteVerification": "",
+  "bingSiteVerification": "",
+  "headCode": "",
+  "bodyCode": ""
 }

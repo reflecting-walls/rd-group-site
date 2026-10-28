@@ -102,6 +102,27 @@ function makeLinker(pagePath) {
   };
 }
 
+// ---------- tracking & verification (Admin → Business info) ----------
+// IDs are validated so a typo can't break the page; headCode/bodyCode are pasted as-is
+// (only people who can commit to the repo can set them).
+function trackingHead(b) {
+  const out = [];
+  const gtm = /^GTM-[A-Z0-9]+$/.test(b.gtmId || '') ? b.gtmId : '';
+  const ga4 = /^G-[A-Z0-9]+$/.test(b.ga4Id || '') ? b.ga4Id : '';
+  if (b.googleSiteVerification) out.push(`<meta name="google-site-verification" content="${esc(b.googleSiteVerification)}">`);
+  if (b.bingSiteVerification) out.push(`<meta name="msvalidate.01" content="${esc(b.bingSiteVerification)}">`);
+  if (gtm) out.push(`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');</script>`);
+  else if (ga4) out.push(`<script async src="https://www.googletagmanager.com/gtag/js?id=${ga4}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga4}');</script>`);
+  if (b.headCode) out.push(String(b.headCode).trim());
+  return out.length ? out.join('\n') + '\n' : '';
+}
+function trackingBody(b) {
+  const out = [];
+  if (/^GTM-[A-Z0-9]+$/.test(b.gtmId || '')) out.push(`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${b.gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`);
+  if (b.bodyCode) out.push(String(b.bodyCode).trim());
+  return out.length ? out.join('\n') + '\n' : '';
+}
+
 // ---------- page chrome ----------
 function head(c, meta) {
   const { business: b } = c.data;
@@ -132,9 +153,9 @@ ${meta.noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots"
 <link rel="stylesheet" href="${c.u('/assets/css/tokens.css')}">
 <link rel="stylesheet" href="${c.u('/assets/css/site.css')}">
 ${(meta.jsonld || []).map(ld).join('\n')}
-</head>
+${trackingHead(b)}</head>
 <body>
-<a class="skip" href="#main">Skip to content</a>`;
+${trackingBody(b)}<a class="skip" href="#main">Skip to content</a>`;
 }
 
 function header(c, active) {
@@ -607,6 +628,9 @@ async function main() {
 
   // The admin ships only when ADMIN=1 is set on the host, i.e. once /admin/* is behind Cloudflare Access.
   for (const d of ['assets', 'card', 'data', ...(process.env.ADMIN === '1' ? ['admin'] : [])]) await copyDir(d, d);
+  const cardPage = path.join(OUT, 'card/index.html');
+  const cardHtml = await fs.readFile(cardPage, 'utf8').catch(() => null);
+  if (cardHtml) await fs.writeFile(cardPage, cardHtml.replace('</head>', () => trackingHead(data.business) + '</head>').replace(/<body([^>]*)>\n?/, (m) => m.replace(/\n?$/, '\n') + trackingBody(data.business)));
   for (const f of ['_headers', '_redirects']) await fs.copyFile(path.join(ROOT, f), path.join(OUT, f));
 
   const site = data.business.website.replace(/\/$/, '');

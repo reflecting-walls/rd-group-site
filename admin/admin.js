@@ -435,7 +435,15 @@
         '<section class="panel"><h2>Hours and profiles</h2><div class="grid-2">' +
         field('hours_text', 'Hours', hours, { type: 'textarea', rows: 4, help: 'One line per row: Days | open | close. Leave open blank for Closed.' }) +
         field('sameAs', 'Social and directory links', (b.sameAs || []).join('\n'), { type: 'textarea', rows: 4, help: 'One link per line: Facebook, Instagram, BBB and so on. Search engines use these to confirm the business.' }) +
-        '</div>' + field('summary', 'Business summary', b.summary, { type: 'textarea', rows: 4, help: 'One plain paragraph shown in the footer and read by search engines and AI assistants. Include the town, services and phone number.' }) + '</section></form>';
+        '</div>' + field('summary', 'Business summary', b.summary, { type: 'textarea', rows: 4, help: 'One plain paragraph shown in the footer and read by search engines and AI assistants. Include the town, services and phone number.' }) + '</section>' +
+        '<section class="panel"><h2>Tracking and verification</h2><div class="grid-2">' +
+        field('gtmId', 'Google Tag Manager ID', b.gtmId, { placeholder: 'GTM-XXXXXXX', help: 'Recommended. Add Google Analytics 4, Google Ads and other tags inside Tag Manager. The site sends phone_click, email_click and generate_lead events you can use as conversion triggers.' }) +
+        field('ga4Id', 'Google Analytics 4 ID', b.ga4Id, { placeholder: 'G-XXXXXXXXXX', help: 'Only if you don\u2019t use Tag Manager. Ignored when a Tag Manager ID is set.' }) +
+        field('googleSiteVerification', 'Google Search Console code', b.googleSiteVerification, { placeholder: 'Content of the google-site-verification tag', help: 'In Search Console choose the HTML tag method and paste only the content="\u2026" value. Not needed if you verify through Cloudflare DNS.' }) +
+        field('bingSiteVerification', 'Bing Webmaster code', b.bingSiteVerification, { placeholder: 'Content of the msvalidate.01 tag' }) +
+        field('headCode', 'Extra code in <head>', b.headCode, { type: 'textarea', rows: 4, help: 'Pasted into every page as-is (for example a Meta Pixel). Only add code from a source you trust.' }) +
+        field('bodyCode', 'Extra code after <body>', b.bodyCode, { type: 'textarea', rows: 4 }) +
+        '</div></section></form>';
       var form = $('#bform');
       form.elements.sameAs.dataset.list = 'lines';
       form.addEventListener('submit', function (e) {

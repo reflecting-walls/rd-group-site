@@ -56,6 +56,15 @@
     box.querySelector('button').focus();
   });
 
+  // dataLayer events for Google Tag Manager (use as Custom Event triggers for GA4 / Google Ads conversions).
+  var track = function (o) { (window.dataLayer = window.dataLayer || []).push(o); };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    var where = a.closest('.mobile-bar') ? 'mobile_bar' : a.closest('header') ? 'header' : a.closest('footer') ? 'footer' : 'content';
+    if (/^tel:/.test(a.getAttribute('href'))) track({ event: 'phone_click', click_location: where });
+    else if (/^mailto:/.test(a.getAttribute('href'))) track({ event: 'email_click', click_location: where });
+  });
+
   // Estimate form -> /api/estimate (worker/index.js), which emails Rafal via Cloudflare Email Routing.
   document.querySelectorAll('[data-lead-form]').forEach(function (form) {
     var status = form.querySelector('.form-status');
@@ -74,6 +83,7 @@
       fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) })
         .then(function (r) {
           if (!r.ok) throw new Error(r.status);
+          track({ event: 'generate_lead', form_id: form.id, project: d.project || '' });
           form.reset();
           status.textContent = 'Thanks, ' + d.name.split(' ')[0] + '. Rafal will call you within one business day.';
         })
