@@ -273,7 +273,9 @@ const crumbLD = (c, items) => ({ '@context': 'https://schema.org', '@type': 'Bre
 function mediaImg(c, m, { sizes = '', eager = false, alt } = {}) {
   if (!m) return '';
   const src = /^https?:/.test(m.url) ? m.url : c.u('/' + m.url);
-  return `<img src="${esc(src)}" alt="${esc(alt ?? m.alt ?? '')}" width="${m.width || 1600}" height="${m.height || 1200}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${sizes ? ` sizes="${sizes}"` : ''}>`;
+  const srcset = m.url_sm ? `${c.u('/' + m.url_sm)} 800w, ${src} ${Math.max(m.width || 1600, m.height || 1200)}w` : '';
+  if (srcset && !sizes) sizes = '(max-width: 560px) 100vw, 50vw';
+  return `<img src="${esc(src)}"${srcset ? ` srcset="${esc(srcset)}"` : ''} alt="${esc(alt ?? m.alt ?? '')}" width="${m.width || 1600}" height="${m.height || 1200}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${sizes ? ` sizes="${sizes}"` : ''}>`;
 }
 
 function projectCard(c, p) {
@@ -532,10 +534,11 @@ function pageProject(c, pr) {
   const description = pr.seo_description || (pr.summary || pr.description || '').slice(0, 155);
   const review = reviews.find((r) => r.project_id === pr.id);
   const town = towns.find((t) => t.name === pr.town && t.published);
-  const specs = [['Location', [pr.neighborhood, pr.town && `${pr.town}, ${pr.state || 'IL'}`].filter(Boolean).join(', ')], ['Completed', fmtDate(pr.completed_on)], ['Time on site', pr.duration_weeks ? `${pr.duration_weeks} weeks` : ''], ['Style', pr.style], ['Budget range', pr.budget_range], ['Materials', pr.materials]].filter(([, v]) => v);
+  const specs = [['Location', [pr.neighborhood, pr.town && `${pr.town}, ${pr.state || 'IL'}`].filter(Boolean).join(', ')], [pr.media.some((m) => m.kind !== 'progress' && m.kind !== 'before') ? 'Completed' : 'Photographed', fmtDate(pr.completed_on)], ['Time on site', pr.duration_weeks ? `${pr.duration_weeks} weeks` : ''], ['Style', pr.style], ['Budget range', pr.budget_range], ['Materials', pr.materials]].filter(([, v]) => v);
   const before = pr.media.filter((m) => m.kind === 'before');
-  const after = pr.media.filter((m) => m.kind !== 'before');
-  const fig = (m) => `<figure><div class="frame" data-lightbox="${esc(/^https?:/.test(m.url) ? m.url : c.u('/' + m.url))}">${mediaImg(c, m)}</div>${m.caption ? `<figcaption>${esc(m.caption)}</figcaption>` : ''}</figure>`;
+  const progress = pr.media.filter((m) => m.kind === 'progress');
+  const after = pr.media.filter((m) => m.kind !== 'before' && m.kind !== 'progress');
+  const fig = (m) => `<figure><div class="frame${m.height > m.width ? ' frame-tall' : ''}" data-lightbox="${esc(/^https?:/.test(m.url) ? m.url : c.u('/' + m.url))}">${mediaImg(c, m)}</div>${m.caption ? `<figcaption>${esc(m.caption)}</figcaption>` : ''}</figure>`;
   const crumbs = [['Home', '/'], ['Projects', '/projects/'], [pr.title, p]];
   return head(c, { path: p, title, description, image: pr.cover?.url, jsonld: [businessLD(c), crumbLD(c, crumbs), { '@context': 'https://schema.org', '@type': 'CreativeWork', name: pr.title, description: pr.description, creator: { '@id': b.website + '/#business' }, locationCreated: pr.town ? { '@type': 'Place', name: `${pr.town}, ${pr.state || 'IL'}` } : undefined, dateCreated: pr.completed_on || undefined, keywords: (pr.tags || []).join(', '), image: pr.media.map((m) => (/^https?:/.test(m.url) ? m.url : b.website + '/' + m.url)) }] }) + header(c, '/projects/') + `
 <section class="wrap pd-head">
@@ -547,8 +550,9 @@ function pageProject(c, pr) {
   </div>
   <dl class="pd-specs">${specs.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
 </section>
-<section class="wrap pd-gallery">${after.map(fig).join('')}</section>
+${after.length ? `<section class="wrap pd-gallery">${after.map(fig).join('')}</section>` : ''}
 ${before.length ? `<section class="wrap" style="margin-top:3rem"><p class="label" style="margin-bottom:1rem">Before</p><div class="pd-gallery">${before.map(fig).join('')}</div></section>` : ''}
+${progress.length ? `<section class="wrap" style="margin-top:3rem"><p class="label" style="margin-bottom:1rem">${after.length ? 'During the work' : 'Work in progress'}</p><div class="pd-gallery">${progress.map(fig).join('')}</div></section>` : ''}
 <section class="band">
   <div class="wrap pd-body">
     <div class="head"><p class="label">The project</p><h2 class="h-md">${esc(pr.scope || 'Scope of work')}</h2></div>

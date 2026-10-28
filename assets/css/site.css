@@ -238,6 +238,9 @@ a.source:hover { background: #191C1F; }
 .pd-gallery figure:first-child { grid-column: 1 / -1; }
 .pd-gallery figure:first-child .frame { aspect-ratio: 16 / 9; }
 .pd-gallery .frame { aspect-ratio: 4 / 3; cursor: zoom-in; }
+.pd-gallery .frame.frame-tall, .pd-gallery figure:first-child .frame.frame-tall { aspect-ratio: 2 / 3; }
+.pd-gallery figure:first-child:has(.frame-tall) { grid-column: auto; }
+.pd-gallery { align-items: start; }
 .pd-gallery figcaption { font-size: .85rem; color: var(--ink-soft); }
 .pd-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(2rem, 5vw, 5rem); }
 .pd-body .prose { display: grid; gap: 1.1rem; color: var(--ink-soft); max-width: 42rem; }
