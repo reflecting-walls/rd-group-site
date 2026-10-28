@@ -8,7 +8,7 @@ A static, pre-rendered site with a browser-based admin and **no backend**. All c
 - **Estimate form:** posts to a free form service (Formspree or Web3Forms) that emails Rafal. Paste the form link under Admin → Business info.
 - **Reviews:** type each platform's rating and count and paste reviews with links to the originals. Optional: set `GOOGLE_PLACES_API_KEY` and/or `YELP_API_KEY` as environment variables on the host, and add the Google Place ID / Yelp business ID in Admin → Reviews. Ratings and the newest reviews then refresh on every rebuild (Google shares up to 5 reviews, Yelp 3 excerpts).
 
-The admin is protected by **Cloudflare Access** (Zero Trust, free plan) in front of `/admin/*`: visitors must enter a one-time code sent to an approved email. It's also hidden from search engines, and it can't change the live site by itself: only someone who can commit to the GitHub repo can publish.
+**The admin is not deployed by default.** The build leaves `admin/` out of `dist/` unless the environment variable `ADMIN=1` is set, so `/admin/` returns 404 on the live site. Turn it on only after putting **Cloudflare Access** (Zero Trust, free plan) in front of `/admin/*`, so visitors must enter a one-time code sent to an approved email. The admin is also hidden from search engines, and it can't change the live site by itself: only someone who can commit to the GitHub repo can publish.
 
 ### Securing /admin/ with Cloudflare Access
 
@@ -17,6 +17,7 @@ The admin is protected by **Cloudflare Access** (Zero Trust, free plan) in front
 3. Add destinations: `www.rdgroup.info` with path `admin`, and `rdgroup.info` with path `admin`.
 4. Add a policy: Action **Allow**, Include → **Emails** → the approved addresses. Login method: **One-time PIN**.
 5. On the Worker (`rd-group-site`) → **Settings → Domains & Routes**, disable the **workers.dev** URL and **Preview URLs**, so `/admin/` can't be reached through a back-door address.
+6. Add the build variable `ADMIN=1` on the Worker (Settings → Build → Variables) and redeploy.
 
 ## Folders
 

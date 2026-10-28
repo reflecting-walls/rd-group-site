@@ -604,7 +604,8 @@ async function main() {
   await render('/reviews/', pageReviews);
   await write('404.html', page404({ data, u: makeLinker('/404.html') }));
 
-  for (const d of ['assets', 'admin', 'card', 'data']) await copyDir(d, d);
+  // The admin ships only when ADMIN=1 is set on the host, i.e. once /admin/* is behind Cloudflare Access.
+  for (const d of ['assets', 'card', 'data', ...(process.env.ADMIN === '1' ? ['admin'] : [])]) await copyDir(d, d);
   for (const f of ['_headers', '_redirects']) await fs.copyFile(path.join(ROOT, f), path.join(OUT, f));
 
   const site = data.business.website.replace(/\/$/, '');
