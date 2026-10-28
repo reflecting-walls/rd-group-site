@@ -1,4 +1,4 @@
-// Admin status bar. There's no login (no backend): the admin edits a draft in this
+// Admin status bar. Login is handled by Cloudflare Access in front of /admin/* (see README). The admin edits a draft in this
 // browser, and nothing changes on the live site until the downloaded update is uploaded.
 (function () {
   var css = '.rd-draft{position:relative;z-index:999;background:#16181A;color:#F3F2EE;font:500 .85rem/1.4 "Hanken Grotesk",system-ui,sans-serif;padding:.6rem max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:center;text-align:center}' +
