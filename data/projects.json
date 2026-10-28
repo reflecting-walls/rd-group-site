@@ -245,9 +245,9 @@
   "review_id": null
  },
  {
-  "slug": "three-bathrooms-freestanding-tub-fluted-tile-chicago-il",
+  "slug": "three-bathrooms-freestanding-tub-fluted-tile-northfield-il",
   "title": "Three Bathrooms: Freestanding Tub, Fluted Tile Shower and Bench Shower",
-  "town": "Chicago",
+  "town": "Northfield",
   "neighborhood": "",
   "state": "IL",
   "tags": [
@@ -272,24 +272,23 @@
   "review_id": null
  },
  {
-  "slug": "loft-kitchen-bathrooms-chicago-il",
-  "title": "Loft Kitchen Island and Three Bathrooms",
+  "slug": "loft-bathrooms-chicago-il",
+  "title": "Loft Primary Bath, Hall Bath and Powder Room",
   "town": "Chicago",
   "neighborhood": "",
   "state": "IL",
   "tags": [
-   "bathroom",
-   "kitchen"
+   "bathroom"
   ],
   "room": "bathroom",
   "style": "modern",
   "completed_on": "2020-11-06",
   "duration_weeks": null,
   "budget_range": "",
-  "scope": "Loft kitchen island and cabinetry, primary bathroom, hall bathroom and powder room",
-  "materials": "White shaker cabinets, quartz-look tops, marble-look porcelain, octagon mosaic accent wall, frameless glass, glass tile floor",
-  "summary": "A loft kitchen with a long cooktop island, plus a primary bath with a freestanding tub, a hall bath and a powder room.",
-  "description": "In this Chicago loft we built a long island with a cooktop and sink, white shaker cabinetry with paneled refrigerator and wall ovens, and a dark end panel that matches the steel beams.\n\nThe primary bathroom has a freestanding tub against an octagon mosaic accent wall, a frameless glass shower with a bench and linear drain, and a floating vanity, all over large marble-look porcelain. We also redid the hall bath with a tub-shower and the powder room, which has a wall-mounted sink over a multicolor glass tile floor.",
+  "scope": "Primary bathroom, hall bathroom and powder room in a loft",
+  "materials": "Marble-look porcelain, octagon mosaic accent wall, frameless glass, floating vanity, glass tile floor",
+  "summary": "Three bathrooms in a Chicago loft, led by a primary bath with a freestanding tub against an octagon mosaic wall.",
+  "description": "The primary bathroom in this Chicago loft has a freestanding tub against an octagon mosaic accent wall, a frameless glass shower with a bench and linear drain, and a floating vanity, all over large marble-look porcelain.\n\nWe also redid the hall bath with a tub-shower and the powder room, which has a wall-mounted sink over a multicolor glass tile floor.",
   "featured": false,
   "id": "r-chi-2020",
   "cover_media_id": "r-chi-2020-1",
@@ -320,34 +319,6 @@
   "featured": false,
   "id": "r-glencoe",
   "cover_media_id": "r-glencoe-1",
-  "published": true,
-  "sample": false,
-  "seo_title": "",
-  "seo_description": "",
-  "review_id": null
- },
- {
-  "slug": "kitchen-bathroom-showers-mundelein-il",
-  "title": "Kitchen and Two Bathroom Showers in Progress",
-  "town": "Mundelein",
-  "neighborhood": "",
-  "state": "IL",
-  "tags": [
-   "kitchen",
-   "bathroom"
-  ],
-  "room": "kitchen",
-  "style": "modern",
-  "completed_on": "2023-04-21",
-  "duration_weeks": null,
-  "budget_range": "",
-  "scope": "Kitchen cabinetry and two tiled showers",
-  "materials": "Gray wood-grain cabinets, stainless appliances, porcelain shower tile, pebble and hexagon floor tile",
-  "summary": "Gray wood-grain kitchen cabinets going in, and two newly tiled showers.",
-  "description": "These photos are from partway through a Mundelein remodel: gray wood-grain kitchen cabinets and stainless appliances installed under a vaulted ceiling, and two tiled showers, one with a charcoal accent wall and pebble floor, the other in glossy green-gray tile over a hexagon floor.",
-  "featured": false,
-  "id": "r-mundelein",
-  "cover_media_id": "r-mundelein-1",
   "published": true,
   "sample": false,
   "seo_title": "",
