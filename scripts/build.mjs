@@ -433,7 +433,7 @@ function pageHome(c) {
       <a class="arrow-link" href="${c.u('/projects/')}">See finished work</a>
     </div>
     <div class="services">
-      ${services.map((s) => `<a class="service" href="${c.u('/' + s.slug + '/')}"><div class="frame"><img src="${c.u('/' + s.image)}" alt="" width="1600" height="1200" loading="lazy" decoding="async"></div><h3>${esc(s.name)}</h3><p>${esc(s.short)}</p><span class="arrow-link" style="justify-self:start">Learn more</span></a>`).join('\n      ')}
+      ${services.map((s) => `<a class="service" href="${c.u('/' + s.slug + '/')}"><div class="frame"><img src="${c.u('/' + s.image)}"${s.image_sm ? ` srcset="${c.u('/' + s.image_sm)} 800w, ${c.u('/' + s.image)} 1600w" sizes="(max-width: 560px) 100vw, 33vw"` : ''} alt="" width="1600" height="1200" loading="lazy" decoding="async"></div><h3>${esc(s.name)}</h3><p>${esc(s.short)}</p><span class="arrow-link" style="justify-self:start">Learn more</span></a>`).join('\n      ')}
     </div>
   </div>
 </section>
@@ -489,7 +489,7 @@ function pageService(c, s) {
     <p class="lede">${esc(s.intro)}</p>
     <div class="hero-actions" style="margin-top:.5rem"><a class="btn btn-ink" href="#estimate">Free Consultation</a><a class="btn btn-line" href="tel:${esc(b.phoneE164)}">Call ${esc(b.phone)}</a></div>
   </div>
-  <div class="frame"><img src="${c.u('/' + s.image)}" alt="" width="1600" height="1200" fetchpriority="high"></div>
+  <div class="frame"><img src="${c.u('/' + s.image)}" alt="${esc(s.image_alt || '')}" width="1600" height="1200" fetchpriority="high"></div>
 </section>
 <section class="band" style="padding-top:clamp(2rem,4vw,3rem)">
   <div class="wrap pd-body">
