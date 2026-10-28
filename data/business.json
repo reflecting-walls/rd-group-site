@@ -14,18 +14,12 @@
   "hours": [
     {
       "days": "Monday – Friday",
-      "open": "7:00 am",
-      "close": "6:00 pm",
-      "schema": "Mo-Fr 07:00-18:00"
+      "open": "9:00 am",
+      "close": "5:00 pm",
+      "schema": "Mo-Fr 09:00-17:00"
     },
     {
-      "days": "Saturday",
-      "open": "8:00 am",
-      "close": "2:00 pm",
-      "schema": "Sa 08:00-14:00"
-    },
-    {
-      "days": "Sunday",
+      "days": "Saturday – Sunday",
       "open": "",
       "close": "",
       "schema": ""
@@ -51,6 +45,6 @@
   "bingSiteVerification": "",
   "headCode": "",
   "bodyCode": "",
-  "kitchenCostRange": "",
-  "bathroomCostRange": ""
+  "kitchenCostRange": "$35,000 to $80,000",
+  "bathroomCostRange": "$22,000 to $55,000"
 }
