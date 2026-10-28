@@ -308,6 +308,7 @@
     <footer class="foot">
       ${p.logo ? `<img src="${esc(p.logo)}" alt="" class="foot-logo">` : ""}
       <p>© ${new Date().getFullYear()} ${esc(p.company)}${c.website ? ` · <a href="${esc(c.website)}">${esc(host(c.website))}</a>` : ""}</p>
+      <p>Site Developed and Maintained by <a href="https://rwmediapros.com/" target="_blank" rel="noopener">RW Media</a></p>
     </footer>
 
     <div class="dock" aria-hidden="false">

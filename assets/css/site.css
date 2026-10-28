@@ -213,6 +213,7 @@ a.source:hover { background: #191C1F; }
 .footer-brand { display: grid; gap: 1.25rem; max-width: 22rem; align-content: start; }
 .footer-brand img { height: 3rem; width: auto; }
 .footer-base { border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-block: 1.5rem; font-size: .8rem; }
+.footer-base .credit { flex-basis: 100%; opacity: .75; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-brand { grid-column: 1 / -1; } }
 
 /* Mobile action bar */
