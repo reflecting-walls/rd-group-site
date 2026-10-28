@@ -75,7 +75,7 @@ Sample projects and reviews are hidden in production builds. They only appear wi
 
 ## Still needed from Rafal
 
-- New business email, license number, year founded, and years of experience or number of projects (optional; shown when filled)
+- License number, year founded, and years of experience or number of projects (optional; shown when filled)
 - Business hours. The ones in `data/business.json` are placeholders.
 - Real project photos with town, dates and a short story per project
 - Google Business Profile, Yelp, Angi and Houzz profile links, ratings and a few reviews to feature
