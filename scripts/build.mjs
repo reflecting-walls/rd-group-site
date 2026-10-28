@@ -93,6 +93,16 @@ const townSlug = (name) => slugify(name);
 const townPagePath = (t) => `/kitchen-bathroom-remodeling-${t.slug}-${t.state.toLowerCase()}/`;
 const stars = (n) => '★★★★★'.slice(0, Math.round(n || 0)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(n || 0));
 const fmtDate = (d) => (d ? new Date(d + (String(d).length === 10 ? 'T12:00:00' : '')).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : '');
+// The stylesheets are inlined into every page so the first paint doesn't wait on extra
+// requests (on mobile each one costs a round trip). Fonts are self-hosted; see assets/css/fonts.css.
+const PRELOAD_FONTS = ['archivo-latin-v25.woff2', 'hanken-grotesk-latin-v12.woff2'];
+let CSS = '';
+async function loadCSS() {
+  const files = ['fonts.css', 'tokens.css', 'site.css'];
+  const parts = await Promise.all(files.map((f) => fs.readFile(path.join(ROOT, 'assets/css', f), 'utf8')));
+  CSS = parts.join('\n').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, ' ').replace(/\s*([{};])\s*/g, '$1').trim();
+}
+const inlineCSS = (c) => CSS.replace(/url\(\.\.\/fonts\//g, () => `url(${c.u('/assets/fonts/')}`);
 const ld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 const tagLabel = (t) => t.replace(/-/g, ' ');
 
@@ -175,11 +185,8 @@ ${meta.noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots"
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FAFAF8">
 <link rel="icon" href="${c.u('/assets/logo/favicon.svg')}" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,200..700&family=Hanken+Grotesk:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="${c.u('/assets/css/tokens.css')}">
-<link rel="stylesheet" href="${c.u('/assets/css/site.css')}">
+${PRELOAD_FONTS.map((f) => `<link rel="preload" href="${c.u('/assets/fonts/' + f)}" as="font" type="font/woff2" crossorigin>`).join('\n')}
+<style>${inlineCSS(c)}</style>
 ${(meta.jsonld || []).map(ld).join('\n')}
 ${trackingHead(b)}</head>
 <body>
@@ -278,9 +285,10 @@ function mediaImg(c, m, { sizes = '', eager = false, alt } = {}) {
   return `<img src="${esc(src)}"${srcset ? ` srcset="${esc(srcset)}"` : ''} alt="${esc(alt ?? m.alt ?? '')}" width="${m.width || 1600}" height="${m.height || 1200}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${sizes ? ` sizes="${sizes}"` : ''}>`;
 }
 
-function projectCard(c, p) {
+// eager: the card is likely the page's largest above-the-fold image, so don't lazy-load it.
+function projectCard(c, p, { eager = false } = {}) {
   return `<a class="project" href="${c.u('/projects/' + p.slug + '/')}" data-tags="${esc((p.tags || []).join(' '))}" data-town="${esc(townSlug(p.town || ''))}">
-  <div class="frame">${mediaImg(c, p.cover, { alt: p.cover?.alt || p.title })}${p.sample ? '<span class="frame-tag">Sample</span>' : ''}</div>
+  <div class="frame">${mediaImg(c, p.cover, { alt: p.cover?.alt || p.title, eager })}${p.sample ? '<span class="frame-tag">Sample</span>' : ''}</div>
   <div class="project-meta"><h3>${esc(p.title)}</h3><p>${esc([p.town && `${p.town}, ${p.state || 'IL'}`, (p.tags || [])[0] && tagLabel(p.tags[0])].filter(Boolean).join(' · '))}</p></div>
 </a>`;
 }
@@ -489,7 +497,7 @@ function pageService(c, s) {
     <p class="lede">${esc(s.intro)}</p>
     <div class="hero-actions" style="margin-top:.5rem"><a class="btn btn-ink" href="#estimate">Free Consultation</a><a class="btn btn-line" href="tel:${esc(b.phoneE164)}">Call ${esc(b.phone)}</a></div>
   </div>
-  <div class="frame"><img src="${c.u('/' + s.image)}" alt="${esc(s.image_alt || '')}" width="1600" height="1200" fetchpriority="high"></div>
+  <div class="frame"><img src="${c.u('/' + s.image)}"${s.image_sm ? ` srcset="${c.u('/' + s.image_sm)} 800w, ${c.u('/' + s.image)} 1600w" sizes="(max-width: 560px) 100vw, 50vw"` : ''} alt="${esc(s.image_alt || '')}" width="1600" height="1200" fetchpriority="high" decoding="async"></div>
 </section>
 <section class="band" style="padding-top:clamp(2rem,4vw,3rem)">
   <div class="wrap pd-body">
@@ -518,7 +526,7 @@ function pageProjects(c) {
       <p class="lede">Finished remodels with the town, scope, materials and how long we were on site.</p>
     </div>
     ${projects.length ? `<div class="filters" role="group" aria-label="Filter by type"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>${tags.map((t) => `<button class="chip" type="button" data-filter="${esc(t)}" aria-pressed="false">${esc(tagLabel(t))}</button>`).join('')}</div>
-    <div class="projects" id="project-grid">${projects.map((x) => projectCard(c, x)).join('\n')}</div>` : '<p class="empty">New projects are being photographed. Check back soon, or call to see recent work in person.</p>'}
+    <div class="projects" id="project-grid">${projects.map((x, i) => projectCard(c, x, { eager: i === 0 })).join('\n')}</div>` : '<p class="empty">New projects are being photographed. Check back soon, or call to see recent work in person.</p>'}
   </div>
 </section>
 ${estimateSection(c)}
@@ -536,7 +544,7 @@ function pageProject(c, pr) {
   const before = pr.media.filter((m) => m.kind === 'before');
   const progress = pr.media.filter((m) => m.kind === 'progress');
   const after = pr.media.filter((m) => m.kind !== 'before' && m.kind !== 'progress');
-  const fig = (m) => `<figure><div class="frame${m.height > m.width ? ' frame-tall' : ''}" data-lightbox="${esc(/^https?:/.test(m.url) ? m.url : c.u('/' + m.url))}">${mediaImg(c, m)}</div>${m.caption ? `<figcaption>${esc(m.caption)}</figcaption>` : ''}</figure>`;
+  const fig = (m) => `<figure><div class="frame${m.height > m.width ? ' frame-tall' : ''}" data-lightbox="${esc(/^https?:/.test(m.url) ? m.url : c.u('/' + m.url))}">${mediaImg(c, m, { eager: m === after[0] })}</div>${m.caption ? `<figcaption>${esc(m.caption)}</figcaption>` : ''}</figure>`;
   const crumbs = [['Home', '/'], ['Projects', '/projects/'], [pr.title, p]];
   return head(c, { path: p, title, description, image: pr.cover?.url, jsonld: [businessLD(c), crumbLD(c, crumbs), { '@context': 'https://schema.org', '@type': 'CreativeWork', name: pr.title, description: pr.description, creator: { '@id': b.website + '/#business' }, locationCreated: pr.town ? { '@type': 'Place', name: `${pr.town}, ${pr.state || 'IL'}` } : undefined, dateCreated: pr.completed_on || undefined, keywords: (pr.tags || []).join(', '), image: pr.media.map((m) => (/^https?:/.test(m.url) ? m.url : b.website + '/' + m.url)) }] }) + header(c, '/projects/') + `
 <section class="wrap pd-head">
@@ -644,6 +652,7 @@ async function copyDir(src, dest) {
 
 async function main() {
   const data = await loadData();
+  await loadCSS();
   await fs.rm(OUT, { recursive: true, force: true });
   await fs.mkdir(OUT, { recursive: true });
   const pages = [];
