@@ -508,7 +508,6 @@ ${estimateSection(c)}
 function pageProjects(c) {
   const { projects } = c.data;
   const tags = [...new Set(projects.flatMap((p) => p.tags || []))];
-  const towns = [...new Set(projects.map((p) => p.town).filter(Boolean))];
   const p = '/projects/';
   return head(c, { path: p, title: 'Remodeling Projects in Palatine & the Northwest Suburbs | RD Group', description: 'Finished kitchen, bathroom and basement remodels by RD Group, Inc. in Palatine, Arlington Heights, Inverness and nearby towns, with scope, materials and timelines for each.', jsonld: [businessLD(c), crumbLD(c, [['Home', '/'], ['Projects', p]])] }) + header(c, p) + `
 <section class="band" style="padding-top:clamp(2.5rem,5vw,4rem)">
@@ -519,7 +518,6 @@ function pageProjects(c) {
       <p class="lede">Finished remodels with the town, scope, materials and how long we were on site.</p>
     </div>
     ${projects.length ? `<div class="filters" role="group" aria-label="Filter by type"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>${tags.map((t) => `<button class="chip" type="button" data-filter="${esc(t)}" aria-pressed="false">${esc(tagLabel(t))}</button>`).join('')}</div>
-    <div class="filters" role="group" aria-label="Filter by town" style="margin-top:-1.25rem">${towns.map((t) => `<button class="chip" type="button" data-town-filter="${esc(townSlug(t))}" aria-pressed="false">${esc(t)}</button>`).join('')}</div>
     <div class="projects" id="project-grid">${projects.map((x) => projectCard(c, x)).join('\n')}</div>` : '<p class="empty">New projects are being photographed. Check back soon, or call to see recent work in person.</p>'}
   </div>
 </section>

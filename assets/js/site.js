@@ -9,28 +9,19 @@
     });
   }
 
-  // Project filters (type + town)
+  // Project filters (room type)
   var grid = document.getElementById('project-grid');
   if (grid) {
-    var state = { tag: 'all', town: '' };
+    var state = { tag: 'all' };
     var apply = function () {
       grid.querySelectorAll('.project').forEach(function (el) {
-        var okTag = state.tag === 'all' || (' ' + el.dataset.tags + ' ').indexOf(' ' + state.tag + ' ') > -1;
-        var okTown = !state.town || el.dataset.town === state.town;
-        el.hidden = !(okTag && okTown);
+        el.hidden = !(state.tag === 'all' || (' ' + el.dataset.tags + ' ').indexOf(' ' + state.tag + ' ') > -1);
       });
     };
     document.querySelectorAll('[data-filter]').forEach(function (b) {
       b.addEventListener('click', function () {
         state.tag = b.dataset.filter;
         document.querySelectorAll('[data-filter]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-        apply();
-      });
-    });
-    document.querySelectorAll('[data-town-filter]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        state.town = state.town === b.dataset.townFilter ? '' : b.dataset.townFilter;
-        document.querySelectorAll('[data-town-filter]').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.townFilter === state.town ? 'true' : 'false'); });
         apply();
       });
     });
