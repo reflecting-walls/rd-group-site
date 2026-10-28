@@ -38,7 +38,8 @@ Admin → Business info → **Tracking and verification** (or `data/business.jso
 | `card/` | Rafal's digital business card (`card.json` is its content) with vCard download |
 | `admin/` | Admin app (`index.html`, `admin.js`) and the card editor (`card.html`) |
 | `assets/css/tokens.css` | Brand colors and fonts shared by the site, admin and card |
-| `assets/css/site.css`, `assets/js/site.js` | Public site styles and behavior |
+| `assets/css/site.css`, `assets/js/site.js` | Public site styles and behavior. The build inlines `fonts.css`, `tokens.css` and `site.css` into every page's `<head>`, so CSS edits need a rebuild |
+| `assets/css/fonts.css`, `assets/fonts/` | Self-hosted Archivo and Hanken Grotesk (trimmed latin files plus latin-ext), so pages don't wait on Google Fonts |
 | `assets/js/data.js`, `assets/js/zip.js` | Admin data layer (`window.store`): loads the JSON, keeps the draft, builds the update zip |
 | `assets/logo/` | New logo: mark, horizontal, stacked, reversed and favicon, all outlined SVG |
 | `assets/uploads/` | Photos uploaded through the admin (arrive with each update zip) |
