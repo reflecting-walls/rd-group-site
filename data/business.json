@@ -1,0 +1,48 @@
+{
+  "name": "RD Group",
+  "legalName": "RD Group, Inc.",
+  "tagline": "Kitchen & bathroom remodeling in Palatine and the Northwest Suburbs",
+  "founder": "Rafal Dmochowski",
+  "phone": "773-936-9244",
+  "phoneE164": "+17739369244",
+  "email": "",
+  "website": "https://www.rdgroup.info",
+  "city": "Palatine",
+  "state": "IL",
+  "postalCode": "",
+  "streetAddress": "",
+  "hours": [
+    {
+      "days": "Monday – Friday",
+      "open": "7:00 am",
+      "close": "6:00 pm",
+      "schema": "Mo-Fr 07:00-18:00"
+    },
+    {
+      "days": "Saturday",
+      "open": "8:00 am",
+      "close": "2:00 pm",
+      "schema": "Sa 08:00-14:00"
+    },
+    {
+      "days": "Sunday",
+      "open": "",
+      "close": "",
+      "schema": ""
+    }
+  ],
+  "foundedYear": "",
+  "license": "",
+  "yearsExperience": "",
+  "projectsCompleted": "",
+  "warrantyYears": "",
+  "priceRange": "$$$",
+  "sameAs": [],
+  "summary": "RD Group, Inc. is a Palatine, Illinois remodeling contractor owned by Rafal Dmochowski. The company focuses on full kitchen and bathroom remodels for homes within 30 miles of Palatine across the Northwest and North Suburbs of Chicago, and also handles basements, flooring, tile and other interior projects. Every job gets a free in-home consultation and an itemized written quote. Call 773-936-9244.",
+  "serviceRadiusMiles": 30,
+  "geo": {
+    "latitude": 42.1103,
+    "longitude": -88.0342
+  },
+  "formEndpoint": ""
+}

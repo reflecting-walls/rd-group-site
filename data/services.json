@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "kitchen-remodeling", "tag": "kitchen", "primary": true,
+    "name": "Kitchen Remodeling",
+    "short": "Full kitchen remodels: layout changes, custom and semi-custom cabinetry, stone counters, tile, lighting and appliance installation.",
+    "image": "assets/img/materials/calacatta.webp",
+    "seoTitle": "Kitchen Remodeling in Palatine, IL | RD Group",
+    "seoDescription": "Full kitchen remodels in Palatine and the Northwest Suburbs. Free in-home consultation, itemized written quote, one crew from demo to final walkthrough. Call 773-936-9244.",
+    "intro": "RD Group remodels kitchens in Palatine and the Northwest Suburbs from the studs out. A typical full kitchen remodel takes 6 to 10 weeks on site once cabinets arrive, and we handle demolition, plumbing and electrical coordination, cabinetry, counters, tile, lighting and the final punch list with one crew.",
+    "includes": ["Layout redesign and wall removal (with permits)", "Cabinet installation, custom and semi-custom", "Quartz, quartzite and natural stone countertops", "Tile backsplashes and flooring", "Recessed and under-cabinet lighting", "Plumbing and electrical coordination", "Appliance installation and venting", "Drywall, trim and paint"],
+    "faqs": [
+      { "q": "How much does a kitchen remodel cost in Palatine?", "a": "Most full kitchen remodels we build fall in a wide range set mainly by cabinetry, counters and whether walls or plumbing move. We give you a fixed, itemized written quote after a free in-home visit, so you see every line before anything starts." },
+      { "q": "How long does a kitchen remodel take?", "a": "Plan on 6 to 10 weeks of on-site work for a full remodel once cabinets are delivered. Custom cabinet lead times can add 4 to 8 weeks before demolition, and we schedule demo around delivery so your kitchen isn't torn out while you wait." },
+      { "q": "Can we live at home during a kitchen remodel?", "a": "Yes, most clients stay home. We seal the work area with dust barriers, protect floors, and can help you set up a temporary kitchen in another room." },
+      { "q": "Do you pull permits for kitchen remodels?", "a": "Yes. We pull the village permits, schedule inspections and meet the inspector on site." }
+    ]
+  },
+  {
+    "slug": "bathroom-remodeling", "tag": "bathroom", "primary": true,
+    "name": "Bathroom Remodeling",
+    "short": "Primary suites, hall baths and powder rooms: curbless showers, freestanding tubs, heated floors, custom vanities and tile.",
+    "image": "assets/img/materials/zellige.webp",
+    "seoTitle": "Bathroom Remodeling in Palatine, IL | RD Group",
+    "seoDescription": "Bathroom remodels in Palatine and the Northwest Suburbs: walk-in and curbless showers, tub-to-shower conversions, heated floors and custom tile. Free consultation. Call 773-936-9244.",
+    "intro": "RD Group builds bathroom remodels in Palatine and the Northwest Suburbs, from powder rooms to full primary suites. Most full bathroom remodels take 3 to 5 weeks on site. Every shower we build gets a tested waterproofing system before tile goes on.",
+    "includes": ["Walk-in, curbless and tiled showers", "Tub-to-shower conversions", "Freestanding and drop-in tubs", "Waterproofing systems (Schluter, Laticrete)", "Heated floors", "Custom and furniture-style vanities", "Frameless glass", "Ventilation and lighting to code"],
+    "faqs": [
+      { "q": "How much does a bathroom remodel cost in Palatine?", "a": "Cost depends mostly on size, tile selection, and whether plumbing moves. After a free in-home visit we give you a fixed, itemized written quote so there are no surprise line items." },
+      { "q": "How long does a bathroom remodel take?", "a": "Most full bathroom remodels take 3 to 5 weeks on site. A tub-to-shower conversion can take as little as 1 to 2 weeks." },
+      { "q": "Can you convert my tub into a walk-in shower?", "a": "Yes. Tub-to-shower conversions are one of our most common projects, including low-threshold and curbless designs for aging in place." },
+      { "q": "What waterproofing do you use in showers?", "a": "We use sheet or liquid membrane systems from Schluter or Laticrete and flood-test shower pans before tile is installed." }
+    ]
+  },
+  {
+    "slug": "home-remodeling", "tag": "interior", "primary": false,
+    "name": "Basements & Other Projects",
+    "short": "Basement finishing, flooring, tile, interior carpentry, drywall and the other projects a house needs.",
+    "image": "assets/img/materials/walnut.webp",
+    "seoTitle": "Basement Finishing & Home Remodeling in Palatine, IL | RD Group",
+    "seoDescription": "Basement finishing, flooring, tile, carpentry and interior remodeling in Palatine and the Northwest Suburbs. Free consultation and written quote. Call 773-936-9244.",
+    "intro": "Beyond kitchens and baths, RD Group finishes basements and takes on flooring, tile, carpentry and other interior projects for homeowners in Palatine and nearby towns. Smaller jobs get the same written quote and clean job site as a full remodel.",
+    "includes": ["Basement finishing and egress windows", "Hardwood, LVP and tile flooring", "Interior doors, trim and built-ins", "Drywall repair and paint", "Laundry and mudroom remodels", "Fireplace surrounds"],
+    "faqs": [
+      { "q": "Do you take on smaller projects?", "a": "Yes. Flooring, tile, trim and repair work are welcome, especially for past kitchen and bath clients." },
+      { "q": "How long does it take to finish a basement?", "a": "Most basement finishing projects take 5 to 9 weeks on site depending on size and whether a bathroom or wet bar is included." }
+    ]
+  }
+]

@@ -1,0 +1,598 @@
+[
+ {
+  "slug": "palatine",
+  "name": "Palatine",
+  "state": "IL",
+  "published": true,
+  "nearby": [
+   "arlington-heights",
+   "inverness",
+   "rolling-meadows"
+  ],
+  "intro": "RD Group is based in Palatine, and most of our kitchen and bathroom remodels are within a few miles of home. That means faster site visits, quicker answers when something comes up mid-project, and a crew that knows how Palatine's permit office and inspectors like work done.",
+  "body": [
+   "Palatine's housing stock runs from 1950s and 1960s ranches and split-levels near downtown to larger 1980s and 1990s two-stories in the northern and western subdivisions. The older homes often have compact, closed-off kitchens and a single hall bath, so the most common projects we see there are opening a kitchen to the family room and adding or enlarging a primary bathroom. In the newer subdivisions the layouts already work, and clients usually want to replace builder-grade cabinets, laminate counters and fiberglass tub surrounds with stone, custom tile and walk-in showers.",
+   "Remodels in Palatine that move walls, plumbing or electrical need a village building permit. We prepare the drawings and pull the permit, schedule rough and final inspections, and meet the inspector on site so you don't have to take time off work.",
+   "Every Palatine project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. You get an itemized written quote a few days later, with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Do I need a permit to remodel a kitchen or bathroom in Palatine?",
+    "a": "If the work changes plumbing, electrical, structure or layout, yes. RD Group pulls the Village of Palatine permit and handles the inspections."
+   },
+   {
+    "q": "How soon can you start a project in Palatine?",
+    "a": "Because we're based in Palatine, site visits are usually scheduled within a week. Start dates depend on the current schedule and material lead times, and we confirm them in your written quote."
+   },
+   {
+    "q": "Do you work in Inverness and Palatine Township too?",
+    "a": "Yes. We work throughout Palatine Township, including Inverness, Rolling Meadows and the unincorporated areas around them."
+   }
+  ],
+  "tier": 1
+ },
+ {
+  "slug": "arlington-heights",
+  "name": "Arlington Heights",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "palatine",
+   "mount-prospect",
+   "rolling-meadows"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "rolling-meadows",
+  "name": "Rolling Meadows",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "palatine",
+   "arlington-heights",
+   "schaumburg"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "inverness",
+  "name": "Inverness",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "palatine",
+   "barrington",
+   "hoffman-estates"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "barrington",
+  "name": "Barrington",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "inverness",
+   "lake-zurich",
+   "palatine"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "schaumburg",
+  "name": "Schaumburg",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "hoffman-estates",
+   "rolling-meadows",
+   "palatine"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "hoffman-estates",
+  "name": "Hoffman Estates",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "schaumburg",
+   "inverness",
+   "barrington"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "mount-prospect",
+  "name": "Mount Prospect",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "arlington-heights",
+   "palatine",
+   "buffalo-grove"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "buffalo-grove",
+  "name": "Buffalo Grove",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "arlington-heights",
+   "lake-zurich",
+   "palatine"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "lake-zurich",
+  "name": "Lake Zurich",
+  "state": "IL",
+  "published": false,
+  "nearby": [
+   "barrington",
+   "buffalo-grove",
+   "palatine"
+  ],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "prospect-heights",
+  "name": "Prospect Heights",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "wheeling",
+  "name": "Wheeling",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 1
+ },
+ {
+  "slug": "des-plaines",
+  "name": "Des Plaines",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "elk-grove-village",
+  "name": "Elk Grove Village",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "park-ridge",
+  "name": "Park Ridge",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "northbrook",
+  "name": "Northbrook",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "glenview",
+  "name": "Glenview",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "long-grove",
+  "name": "Long Grove",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "kildeer",
+  "name": "Kildeer",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "hawthorn-woods",
+  "name": "Hawthorn Woods",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "deer-park",
+  "name": "Deer Park",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "south-barrington",
+  "name": "South Barrington",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "streamwood",
+  "name": "Streamwood",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "bartlett",
+  "name": "Bartlett",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "vernon-hills",
+  "name": "Vernon Hills",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "libertyville",
+  "name": "Libertyville",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "lincolnshire",
+  "name": "Lincolnshire",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "itasca",
+  "name": "Itasca",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "roselle",
+  "name": "Roselle",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "bloomingdale",
+  "name": "Bloomingdale",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 2
+ },
+ {
+  "slug": "evanston",
+  "name": "Evanston",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "wilmette",
+  "name": "Wilmette",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "winnetka",
+  "name": "Winnetka",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "skokie",
+  "name": "Skokie",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "highland-park",
+  "name": "Highland Park",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "elgin",
+  "name": "Elgin",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "crystal-lake",
+  "name": "Crystal Lake",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "algonquin",
+  "name": "Algonquin",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "mundelein",
+  "name": "Mundelein",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "elmhurst",
+  "name": "Elmhurst",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "oak-brook",
+  "name": "Oak Brook",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "carol-stream",
+  "name": "Carol Stream",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "cary",
+  "name": "Cary",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "deerfield",
+  "name": "Deerfield",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "fox-river-grove",
+  "name": "Fox River Grove",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "lake-barrington",
+  "name": "Lake Barrington",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "niles",
+  "name": "Niles",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "north-barrington",
+  "name": "North Barrington",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ },
+ {
+  "slug": "wauconda",
+  "name": "Wauconda",
+  "state": "IL",
+  "published": false,
+  "nearby": [],
+  "intro": "",
+  "body": [],
+  "faqs": [],
+  "tier": 3
+ }
+]

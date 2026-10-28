@@ -1,0 +1,194 @@
+[
+ {
+  "id": "m1-1",
+  "project_id": "p1",
+  "url": "assets/img/materials/calacatta.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Calacatta Kitchen with Walnut Island, kitchen remodel in Palatine, IL",
+  "caption": "",
+  "tags": [
+   "kitchen"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 0,
+  "sample": true
+ },
+ {
+  "id": "m1-2",
+  "project_id": "p1",
+  "url": "assets/img/materials/walnut.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Calacatta Kitchen with Walnut Island, kitchen remodel in Palatine, IL",
+  "caption": "",
+  "tags": [
+   "kitchen"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 1,
+  "sample": true
+ },
+ {
+  "id": "m1-3",
+  "project_id": "p1",
+  "url": "assets/img/materials/plaster.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Calacatta Kitchen with Walnut Island, kitchen remodel in Palatine, IL",
+  "caption": "",
+  "tags": [
+   "kitchen"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 2,
+  "sample": true
+ },
+ {
+  "id": "m2-1",
+  "project_id": "p2",
+  "url": "assets/img/materials/zellige.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Primary Bath with Green Zellige Shower, bathroom remodel in Arlington Heights, IL",
+  "caption": "",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Arlington Heights",
+  "kind": "after",
+  "sort": 0,
+  "sample": true
+ },
+ {
+  "id": "m2-2",
+  "project_id": "p2",
+  "url": "assets/img/materials/terrazzo.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Primary Bath with Green Zellige Shower, bathroom remodel in Arlington Heights, IL",
+  "caption": "",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Arlington Heights",
+  "kind": "after",
+  "sort": 1,
+  "sample": true
+ },
+ {
+  "id": "m3-1",
+  "project_id": "p3",
+  "url": "assets/img/materials/nero.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Nero Marble Powder Room, bathroom remodel in Inverness, IL",
+  "caption": "",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Inverness",
+  "kind": "after",
+  "sort": 0,
+  "sample": true
+ },
+ {
+  "id": "m3-2",
+  "project_id": "p3",
+  "url": "assets/img/materials/plaster.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Nero Marble Powder Room, bathroom remodel in Inverness, IL",
+  "caption": "",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Inverness",
+  "kind": "after",
+  "sort": 1,
+  "sample": true
+ },
+ {
+  "id": "m4-1",
+  "project_id": "p4",
+  "url": "assets/img/materials/terrazzo.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Terrazzo Hall Bath, bathroom remodel in Palatine, IL",
+  "caption": "",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 0,
+  "sample": true
+ },
+ {
+  "id": "m5-1",
+  "project_id": "p5",
+  "url": "assets/img/materials/walnut.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Basement with Walnut Wet Bar, basement remodel in Schaumburg, IL",
+  "caption": "",
+  "tags": [
+   "basement"
+  ],
+  "town": "Schaumburg",
+  "kind": "after",
+  "sort": 0,
+  "sample": true
+ },
+ {
+  "id": "m5-2",
+  "project_id": "p5",
+  "url": "assets/img/materials/plaster.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Basement with Walnut Wet Bar, basement remodel in Schaumburg, IL",
+  "caption": "",
+  "tags": [
+   "basement"
+  ],
+  "town": "Schaumburg",
+  "kind": "after",
+  "sort": 1,
+  "sample": true
+ },
+ {
+  "id": "m6-1",
+  "project_id": "p6",
+  "url": "assets/img/materials/plaster.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Plaster Hood White Kitchen, kitchen remodel in Rolling Meadows, IL",
+  "caption": "",
+  "tags": [
+   "kitchen"
+  ],
+  "town": "Rolling Meadows",
+  "kind": "after",
+  "sort": 0,
+  "sample": true
+ },
+ {
+  "id": "m6-2",
+  "project_id": "p6",
+  "url": "assets/img/materials/calacatta.webp",
+  "width": 1600,
+  "height": 1200,
+  "alt": "Plaster Hood White Kitchen, kitchen remodel in Rolling Meadows, IL",
+  "caption": "",
+  "tags": [
+   "kitchen"
+  ],
+  "town": "Rolling Meadows",
+  "kind": "after",
+  "sort": 1,
+  "sample": true
+ }
+]

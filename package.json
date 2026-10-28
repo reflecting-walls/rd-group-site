@@ -1,0 +1,10 @@
+{
+  "name": "rd-group-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "SAMPLES=1 node scripts/build.mjs && npx --yes serve dist"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,50 @@
+[
+ {
+  "id": "google",
+  "name": "Google",
+  "kind": "google_places",
+  "external_id": "",
+  "profile_url": "",
+  "rating": null,
+  "review_count": null,
+  "enabled": true,
+  "sort": 1,
+  "color": "#4285F4"
+ },
+ {
+  "id": "yelp",
+  "name": "Yelp",
+  "kind": "yelp_fusion",
+  "external_id": "",
+  "profile_url": "",
+  "rating": null,
+  "review_count": null,
+  "enabled": true,
+  "sort": 2,
+  "color": "#D32323"
+ },
+ {
+  "id": "angi",
+  "name": "Angi",
+  "kind": "manual",
+  "external_id": "",
+  "profile_url": "",
+  "rating": null,
+  "review_count": null,
+  "enabled": true,
+  "sort": 3,
+  "color": "#FF6153"
+ },
+ {
+  "id": "houzz",
+  "name": "Houzz",
+  "kind": "manual",
+  "external_id": "",
+  "profile_url": "",
+  "rating": null,
+  "review_count": null,
+  "enabled": true,
+  "sort": 4,
+  "color": "#4DBC15"
+ }
+]

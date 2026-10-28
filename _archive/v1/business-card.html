@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RD Group Business Card</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Standard US card: 3.5in x 2in trim, 0.125in bleed on each side for print. */
+:root { --ink: #15202E; --paper: #F6F6F3; --amber: #E8A317; --muted: #56616A; --on-ink: #F2F3F0; --on-ink-muted: #A9B2B8; }
+@page { size: 3.75in 2.25in; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #D9DBD7; font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 32px; padding: 32px 16px; justify-content: center; }
+.card { width: 3.75in; height: 2.25in; padding: .125in; position: relative; overflow: hidden; flex: none; box-shadow: 0 6px 24px rgba(21,32,46,.18); }
+.safe { position: absolute; inset: .25in; }
+.front { background: var(--ink); color: var(--on-ink); }
+.front .safe { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .08in; text-align: center; }
+.front svg { width: .9in; height: .9in; }
+.front .name { font: 800 21pt/1 "Archivo", "Arial Black", sans-serif; font-stretch: 118%; letter-spacing: .02em; }
+.front .tag { font: 500 6.4pt/1.3 "IBM Plex Mono", "Courier New", monospace; letter-spacing: .2em; color: var(--on-ink-muted); text-transform: uppercase; }
+.front .bar { position: absolute; left: 0; right: 0; bottom: 0; height: .2in; background: var(--amber); }
+.back { background: var(--paper); color: var(--ink); }
+.back .safe { display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto; }
+.back .who { grid-column: 1; }
+.back .person { font: 700 13pt/1.1 "Archivo", Arial, sans-serif; font-stretch: 110%; }
+.back .role { font: 500 6.5pt/1.4 "IBM Plex Mono", monospace; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: .03in; }
+.back svg { grid-column: 2; grid-row: 1; width: .5in; height: .5in; color: var(--ink); }
+.back .contact { grid-column: 1 / -1; grid-row: 3; display: grid; gap: .035in; font-size: 8pt; border-top: 1.2pt solid var(--ink); padding-top: .07in; }
+.back .contact div { display: flex; gap: .1in; }
+.back .contact b { font: 500 6pt/1.6 "IBM Plex Mono", monospace; letter-spacing: .14em; color: var(--muted); width: .42in; flex: none; }
+.back .phone { font: 700 12pt/1 "Archivo", Arial, sans-serif; font-stretch: 105%; }
+.back .tagline { grid-column: 1 / -1; grid-row: 2; align-self: center; font: 500 7.5pt/1.3 "Instrument Sans", sans-serif; color: var(--muted); }
+.back .placeholder { color: #8F5F00; font-style: italic; }
+@media print { body { background: none; padding: 0; gap: 0; display: block; } .card { box-shadow: none; page-break-after: always; } }
+</style>
+</head>
+<body>
+<section class="card front" aria-label="Card front">
+  <div class="safe">
+    <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M10 54 L60 16 L110 54" fill="none" stroke="#E8A317" stroke-width="8"/><g fill="none" stroke="#F2F3F0" stroke-width="9"><path d="M30 100 V56 H50 L57 63 V73 L50 80 H30"/><path d="M42 80 L53 100"/><path d="M68 56 V100 H82 L92 90 V66 L82 56 Z"/></g><path d="M16 108 H104" stroke="#F2F3F0" stroke-width="5"/></svg>
+    <div class="name">RD GROUP, INC.</div>
+    <div class="tag">Kitchens · Bathrooms · Remodeling</div>
+  </div>
+  <div class="bar"></div>
+</section>
+
+<section class="card back" aria-label="Card back">
+  <div class="safe">
+    <div class="who">
+      <div class="person">Rafal Dmochowski</div>
+      <div class="role">Owner · RD Group, Inc.</div>
+    </div>
+    <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M10 54 L60 16 L110 54" fill="none" stroke="#E8A317" stroke-width="8"/><g fill="none" stroke="#15202E" stroke-width="9"><path d="M30 100 V56 H50 L57 63 V73 L50 80 H30"/><path d="M42 80 L53 100"/><path d="M68 56 V100 H82 L92 90 V66 L82 56 Z"/></g><path d="M16 108 H104" stroke="#15202E" stroke-width="5"/></svg>
+    <div class="tagline">Major Home Repairs · Kitchens and Bathrooms</div>
+    <div class="contact">
+      <div><b>PHONE</b><span class="phone">773-936-9244</span></div>
+      <div><b>WEB</b><span>www.rdgroup.info</span></div>
+      <div><b>EMAIL</b><span class="placeholder">new email address</span></div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RD Group, Inc.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="RD Group, Inc. handles major home remodels in Chicago: kitchens and bathrooms first, plus basements, flooring and other home projects. Call Rafal at 773-936-9244.">
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: drawing-set language. Dark steel bands for hero and footer, concrete-grey sheets between,
+   projects shown as drawing sheets with a title block. Single committed light look. */
+:root {
+  --ink: #15202E;        /* structural steel */
+  --ink-2: #1E2B3B;
+  --concrete: #E9EAE6;   /* poured concrete */
+  --paper: #F6F6F3;
+  --line: #C8CCC9;
+  --muted: #56616A;
+  --on-ink: #F2F3F0;
+  --on-ink-muted: #A9B2B8;
+  --amber: #E8A317;      /* safety amber */
+  --amber-text: #8F5F00;
+  --blueprint: #1E3A55;
+  --blueprint-line: rgba(190, 215, 240, .18);
+
+  --f-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --step--1: .8125rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+  --step-3: clamp(2.2rem, 1.4rem + 3.6vw, 4rem);
+
+  --wrap: 72rem;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--step-0)/1.6 var(--f-body); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--ink); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--f-display); font-stretch: 112%; line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+p { margin: 0; }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.band { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.eyebrow { font: 500 var(--step--1)/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .14em; color: var(--amber-text); display: flex; align-items: center; gap: .6rem; }
+.eyebrow::before { content: ""; width: 1.4rem; height: 3px; background: var(--amber); flex: none; }
+.section-head { display: grid; gap: .9rem; max-width: 44rem; margin-bottom: 2.5rem; }
+.section-head h2 { font-size: var(--step-2); font-weight: 750; }
+.section-head p { color: var(--muted); font-size: 1.0625rem; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--amber); color: var(--ink); padding: .6rem 1rem; z-index: 99; }
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: .55rem; font: 600 .975rem/1 var(--f-body); text-decoration: none; padding: .95rem 1.35rem; border: 2px solid transparent; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.btn-amber { background: var(--amber); color: var(--ink); }
+.btn-amber:hover { background: #F2B53A; }
+.btn-ghost { border-color: currentColor; color: inherit; background: transparent; }
+.btn-ghost:hover { background: var(--on-ink); color: var(--ink); border-color: var(--on-ink); }
+.btn-dark { background: var(--ink); color: var(--on-ink); }
+.btn-dark:hover { background: var(--ink-2); }
+
+/* Header */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--ink); color: var(--on-ink); border-bottom: 1px solid rgba(255,255,255,.08); }
+.header-row { display: flex; align-items: center; gap: 1.5rem; min-height: 4.25rem; }
+.brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; margin-right: auto; }
+.brand svg { width: 2.6rem; height: 2.6rem; flex: none; }
+.brand-name { font: 800 1.15rem/1 var(--f-display); font-stretch: 125%; letter-spacing: .04em; }
+.brand-sub { display: block; font: 500 .62rem/1 var(--f-mono); letter-spacing: .2em; color: var(--on-ink-muted); margin-top: .3rem; }
+.nav { display: flex; gap: 1.4rem; }
+.nav a { text-decoration: none; font-size: .925rem; color: var(--on-ink-muted); padding-block: .4rem; border-bottom: 2px solid transparent; }
+.nav a:hover { color: var(--on-ink); border-color: var(--amber); }
+.header-phone { font: 500 .9rem/1 var(--f-mono); text-decoration: none; color: var(--on-ink); white-space: nowrap; }
+.header-cta { padding: .7rem 1rem; font-size: .9rem; }
+.menu-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,.25); color: var(--on-ink); font: 500 .8rem/1 var(--f-mono); letter-spacing: .12em; padding: .65rem .8rem; cursor: pointer; }
+@media (max-width: 960px) {
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--ink); flex-direction: column; gap: 0; padding: .5rem var(--gutter-r) 1.25rem var(--gutter-l); border-bottom: 1px solid rgba(255,255,255,.1); }
+  .nav.open { display: flex; }
+  .nav a { padding-block: .85rem; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 1rem; }
+  .menu-toggle { display: inline-block; }
+  .header-phone { display: none; }
+}
+@media (max-width: 520px) { .header-cta { display: none; } }
+
+/* Hero */
+.hero { background: var(--ink); color: var(--on-ink); overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; padding-block: clamp(3rem, 7vw, 5.5rem); }
+.hero .eyebrow { color: var(--amber); }
+.hero h1 { font-size: var(--step-3); font-weight: 800; margin-block: 1.1rem 1.25rem; }
+.hero h1 em { font-style: normal; color: var(--amber); }
+.hero-lede { color: var(--on-ink-muted); font-size: 1.125rem; max-width: 34rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-block: 2rem; }
+.checks { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 1.5rem; font-size: .95rem; }
+.checks li { display: flex; gap: .6rem; align-items: baseline; }
+.checks li::before { content: ""; width: .6rem; height: .6rem; background: var(--amber); flex: none; transform: translateY(-.05rem); }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) { .checks { grid-template-columns: minmax(0, 1fr); } }
+
+/* Blueprint placeholder plates (swap for real photos) */
+.plate { position: relative; background-color: var(--blueprint); background-image: linear-gradient(var(--blueprint-line) 1px, transparent 1px), linear-gradient(90deg, var(--blueprint-line) 1px, transparent 1px); background-size: 24px 24px; color: #D6E4F0; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; }
+.plate svg { position: absolute; inset: 12% 10% 18%; width: 80%; height: 70%; }
+.plate-label { position: absolute; left: .75rem; bottom: .65rem; font: 500 .7rem/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
+.plate img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.hero-figure { position: relative; padding: 1.75rem 0 0 1.75rem; }
+.hero-figure .plate { aspect-ratio: 5 / 4; }
+.dim { position: absolute; font: 500 .72rem/1 var(--f-mono); color: var(--on-ink-muted); display: flex; align-items: center; gap: .5rem; }
+.dim-h { top: 0; left: 1.75rem; right: 0; }
+.dim-h::before, .dim-h::after { content: ""; flex: 1; height: 1px; background: var(--on-ink-muted); }
+.dim-v { top: 1.75rem; bottom: 0; left: 0; width: 1rem; flex-direction: column; justify-content: center; }
+.dim-v::before, .dim-v::after { content: ""; flex: 1; width: 1px; background: var(--on-ink-muted); }
+.dim-v span { writing-mode: vertical-rl; transform: rotate(180deg); }
+
+/* Trust strip */
+.strip { background: var(--amber); color: var(--ink); }
+.strip-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; padding-block: 1rem; font: 500 .82rem/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.service { background: var(--paper); padding: 1.75rem 1.5rem 1.6rem; display: grid; grid-template-rows: auto auto 1fr auto; gap: .75rem; min-width: 0; }
+.service-code { font: 500 .75rem/1 var(--f-mono); color: var(--muted); letter-spacing: .1em; }
+.service h3 { font-size: 1.35rem; font-weight: 700; }
+.service p { color: var(--muted); }
+.service-meta { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px dashed var(--line); padding-top: .8rem; font: 500 .78rem/1.3 var(--f-mono); color: var(--ink); }
+.service-meta span:first-child { color: var(--muted); }
+@media (max-width: 900px) { .services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .services { grid-template-columns: minmax(0, 1fr); } }
+
+/* Projects */
+.projects-band { background: var(--concrete); }
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.75rem; }
+.filter { font: 500 .8rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: .7rem .95rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
+.filter[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.sheet { background: var(--paper); border: 1px solid var(--ink); display: flex; flex-direction: column; min-width: 0; }
+.sheet .plate { aspect-ratio: 4 / 3; }
+.titleblock { display: grid; grid-template-columns: minmax(0, 1fr) auto; border-top: 1px solid var(--ink); }
+.tb-main { padding: .9rem 1rem; border-right: 1px solid var(--ink); min-width: 0; }
+.tb-main h3 { font-size: 1.1rem; font-weight: 700; font-stretch: 105%; }
+.tb-main p { font-size: .9rem; color: var(--muted); margin-top: .3rem; }
+.tb-sheet { display: grid; place-content: center; text-align: center; padding: .6rem .9rem; font-family: var(--f-mono); }
+.tb-sheet small { font-size: .62rem; letter-spacing: .14em; color: var(--muted); }
+.tb-sheet b { font-size: 1.05rem; font-weight: 500; }
+.tb-specs { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); font: 400 .74rem/1.35 var(--f-mono); }
+.tb-specs div { padding: .55rem 1rem; min-width: 0; }
+.tb-specs div + div { border-left: 1px solid var(--line); }
+.tb-specs dt { color: var(--muted); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; }
+.tb-specs dd { margin: 0; font-variant-numeric: tabular-nums; }
+@media (max-width: 960px) { .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .projects { grid-template-columns: minmax(0, 1fr); } }
+
+/* Process (a real sequence, so it is numbered) */
+.process { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 2px solid var(--ink); counter-reset: step; }
+.process li { padding: 1.4rem 1.25rem 0 0; counter-increment: step; display: grid; gap: .5rem; align-content: start; position: relative; min-width: 0; }
+.process li::before { content: "0" counter(step); font: 500 .8rem/1 var(--f-mono); color: var(--amber-text); }
+.process li::after { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; background: var(--amber); border: 2px solid var(--ink); }
+.process h3 { font-size: 1.1rem; font-weight: 700; }
+.process p { color: var(--muted); font-size: .94rem; }
+@media (max-width: 900px) { .process { grid-template-columns: minmax(0, 1fr); border-top: 0; border-left: 2px solid var(--ink); } .process li { padding: 0 0 1.75rem 1.5rem; } .process li::after { top: 0; left: -7px; } }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.about .plate { aspect-ratio: 4 / 5; }
+.about-copy { display: grid; gap: 1.1rem; max-width: 38rem; }
+.about-copy h2 { font-size: var(--step-2); font-weight: 750; }
+.about-copy p { color: var(--muted); font-size: 1.0625rem; }
+.creds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line); margin-top: .5rem; }
+.creds div { padding: .9rem 1rem; }
+.creds div:nth-child(odd) { border-right: 1px solid var(--line); }
+.creds div:nth-child(n+3) { border-top: 1px solid var(--line); }
+.creds dt { font: 500 .66rem/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.creds dd { margin: .25rem 0 0; font-weight: 600; }
+@media (max-width: 800px) { .about { grid-template-columns: minmax(0, 1fr); } .about .plate { aspect-ratio: 16 / 10; } }
+
+/* Reviews */
+.reviews-band { background: var(--ink); color: var(--on-ink); }
+.reviews-band .section-head p { color: var(--on-ink-muted); }
+.reviews-band .eyebrow { color: var(--amber); }
+.reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.review { border-top: 3px solid var(--amber); padding-top: 1.25rem; display: grid; gap: 1rem; align-content: start; margin: 0; }
+.review blockquote { margin: 0; font-size: 1.05rem; line-height: 1.55; }
+.review figcaption { font: 500 .78rem/1.4 var(--f-mono); color: var(--on-ink-muted); letter-spacing: .04em; }
+.tag-placeholder { display: inline-block; font: 500 .62rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; border: 1px dashed currentColor; padding: .3rem .45rem; color: var(--amber); }
+@media (max-width: 860px) { .reviews { grid-template-columns: minmax(0, 1fr); } }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4rem); }
+.contact-info { display: grid; gap: 1.75rem; align-content: start; }
+.contact-info h2 { font-size: var(--step-2); font-weight: 750; }
+.info-list { display: grid; gap: 1.1rem; margin: 0; }
+.info-list dt { font: 500 .68rem/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.info-list dd { margin: .25rem 0 0; font-size: 1.05rem; }
+.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .95rem; }
+.hours td { padding: .35rem 0; border-bottom: 1px dashed var(--line); }
+.hours td:last-child { text-align: right; font-family: var(--f-mono); font-size: .85rem; }
+.quote { background: var(--concrete); border: 1px solid var(--line); padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 1rem; align-content: start; }
+.quote h3 { font-size: 1.35rem; font-weight: 700; }
+.field { display: grid; gap: .35rem; min-width: 0; }
+.field label { font: 500 .72rem/1.2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.field input, .field select, .field textarea { font: inherit; padding: .75rem .8rem; border: 1px solid #A7ADAA; background: var(--paper); color: var(--ink); border-radius: 0; width: 100%; }
+.field textarea { min-height: 7rem; resize: vertical; }
+.row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.form-note { font-size: .85rem; color: var(--muted); }
+.form-status { font-weight: 600; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .row-2 { grid-template-columns: minmax(0, 1fr); } }
+
+/* FAQ */
+.faq { display: grid; border-top: 1px solid var(--ink); max-width: 52rem; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; font-weight: 600; font-size: 1.05rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 500 1.2rem/1 var(--f-mono); color: var(--amber-text); }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { padding: 0 0 1.25rem; color: var(--muted); max-width: 44rem; }
+
+/* Closing CTA */
+.cta-band { background: var(--amber); color: var(--ink); }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: clamp(2.5rem, 5vw, 3.5rem); }
+.cta-row h2 { font-size: var(--step-2); font-weight: 800; max-width: 34rem; }
+.cta-row .btn-ghost:hover { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+
+/* Footer */
+.site-footer { background: var(--ink); color: var(--on-ink-muted); font-size: .92rem; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem); }
+.footer-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 2rem; padding-block: 3.5rem 2.5rem; }
+.footer-grid h4 { margin: 0 0 .9rem; font: 500 .7rem/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--on-ink); }
+.footer-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+.footer-grid a { text-decoration: none; }
+.footer-grid a:hover { color: var(--on-ink); }
+.footer-brand { display: grid; gap: 1rem; max-width: 22rem; }
+.footer-base { border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-block: 1.25rem; font: 400 .75rem/1.4 var(--f-mono); }
+@media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-brand { grid-column: 1 / -1; } }
+
+/* Mobile call bar */
+.mobile-bar { display: none; }
+@media (max-width: 640px) {
+  .mobile-bar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--ink); padding: .5rem var(--gutter-r) calc(.5rem + env(safe-area-inset-bottom, 0px)) var(--gutter-l); gap: .5rem; border-top: 1px solid rgba(255,255,255,.12); }
+  .mobile-bar .btn { justify-content: center; padding: .8rem; }
+  .site-footer { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5rem); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Inline drawings used as placeholders until real photos are added -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="d-house" viewBox="0 0 400 240"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M40 230 V110 L200 20 L360 110 V230 Z"/><path d="M20 122 L200 20 L380 122"/><rect x="80" y="140" width="60" height="50"/><path d="M110 140 V190 M80 165 H140"/><rect x="260" y="140" width="60" height="50"/><path d="M290 140 V190 M260 165 H320"/><rect x="175" y="150" width="50" height="80"/><circle cx="215" cy="192" r="3"/><path d="M0 230 H400" stroke-dasharray="6 6"/></g></symbol>
+  <symbol id="d-kitchen" viewBox="0 0 400 240"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M20 230 H380"/><rect x="30" y="140" width="340" height="90"/><path d="M30 155 H370"/><path d="M115 155 V230 M200 155 V230 M285 155 V230"/><path d="M60 185 H85 M145 185 H170 M230 185 H255 M315 185 H340"/><rect x="30" y="30" width="120" height="70"/><rect x="250" y="30" width="120" height="70"/><path d="M90 30 V100 M310 30 V100"/><path d="M175 40 H225 L235 100 H165 Z"/><path d="M200 100 V140" stroke-dasharray="4 4"/></g></symbol>
+  <symbol id="d-bath" viewBox="0 0 400 240"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M20 230 H380"/><rect x="40" y="40" width="130" height="190"/><path d="M60 40 V230" stroke-dasharray="3 6"/><path d="M80 70 h40 M100 70 v30"/><circle cx="100" cy="60" r="6"/><rect x="220" y="150" width="140" height="80"/><ellipse cx="290" cy="150" rx="45" ry="9"/><rect x="250" y="40" width="80" height="80"/><path d="M290 130 V150"/></g></symbol>
+  <symbol id="d-addition" viewBox="0 0 400 240"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M30 230 V110 L130 40 L230 110 V230 Z"/><path d="M230 230 V130 H370 V230" stroke-dasharray="7 5"/><path d="M220 130 H380"/><rect x="270" y="160" width="60" height="45" stroke-dasharray="7 5"/><rect x="100" y="150" width="60" height="80"/><path d="M0 230 H400"/><path d="M230 112 L370 112" stroke-dasharray="2 5"/><text x="300" y="104" font-size="12" fill="currentColor" stroke="none" font-family="monospace" text-anchor="middle">NEW 16'-0"</text></g></symbol>
+  <symbol id="d-basement" viewBox="0 0 400 240"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M10 80 H390"/><path d="M30 80 V230 H370 V80"/><path d="M30 80 L10 60 M370 80 L390 60"/><path d="M60 230 L140 150 H200"/><path d="M60 230 V150 M80 210 h20 M100 190 h20 M120 170 h20"/><rect x="230" y="130" width="110" height="60"/><path d="M230 175 H340"/><rect x="250" y="190" width="10" height="40"/><rect x="310" y="190" width="10" height="40"/></g></symbol>
+  <symbol id="d-deck" viewBox="0 0 400 240"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M20 140 H380"/><path d="M20 120 H380"/><path d="M40 120 V230 M140 120 V230 M240 120 V230 M340 120 V230"/><path d="M40 60 V120 M380 60 V120 M40 60 H380"/><path d="M70 60 V120 M100 60 V120 M130 60 V120 M160 60 V120 M190 60 V120 M220 60 V120 M250 60 V120 M280 60 V120 M310 60 V120 M340 60 V120"/><path d="M0 230 H400"/></g></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="RD Group home">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M10 54 L60 16 L110 54" fill="none" stroke="#E8A317" stroke-width="8"/><g fill="none" stroke="currentColor" stroke-width="9"><path d="M30 100 V56 H50 L57 63 V73 L50 80 H30"/><path d="M42 80 L53 100"/><path d="M68 56 V100 H82 L92 90 V66 L82 56 Z"/></g><path d="M16 108 H104" stroke="currentColor" stroke-width="5"/></svg>
+      <span><span class="brand-name">RD GROUP</span><span class="brand-sub">KITCHENS · BATHROOMS</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-phone" href="tel:+17739369244">773-936-9244</a>
+    <a class="btn btn-amber header-cta" href="#contact">Free Estimate</a>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">MENU</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Major Home Repairs · Chicago, IL</p>
+        <h1>Kitchens and bathrooms, rebuilt <em>right</em>.</h1>
+        <p class="hero-lede">RD Group, Inc. takes on major interior remodels, mostly kitchens and bathrooms, from the first measurement to the final walkthrough. We also handle basements, flooring and the other projects a house needs. One crew, one written quote, and Rafal on the phone.</p>
+        <div class="hero-actions">
+          <a class="btn btn-amber" href="#contact">Get a Free Estimate</a>
+          <a class="btn btn-ghost" href="#projects">See Our Work</a>
+        </div>
+        <ul class="checks">
+          <li>Licensed &amp; fully insured</li>
+          <li>Free on-site estimates</li>
+          <li>Fixed, itemized written quotes</li>
+          <li>Clean job site every day</li>
+        </ul>
+      </div>
+      <div class="hero-figure" aria-hidden="true">
+        <div class="dim dim-h"><span>32'-0"</span></div>
+        <div class="dim dim-v"><span>24'-6"</span></div>
+        <div class="plate">
+          <svg><use href="#d-kitchen"/></svg>
+          <span class="plate-label">Kitchen elevation · replace with hero photo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap strip-row">
+      <span>Residential interiors</span>
+      <span>Permits pulled &amp; inspections handled</span>
+      <span>Written workmanship warranty</span>
+    </div>
+  </div>
+
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>Kitchens and baths first. The rest of the house too.</h2>
+        <p>Every job starts with a site visit and a scope you can read line by line. Timelines below are typical once permits are approved.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <span class="service-code">KITCHENS</span>
+          <h3>Kitchen remodeling</h3>
+          <p>Layout changes, cabinets, countertops, tile, lighting and appliance hookups. Plumbing and electrical coordinated in one schedule.</p>
+          <div class="service-meta"><span>Typical timeline</span><span>4–8 weeks</span></div>
+        </article>
+        <article class="service">
+          <span class="service-code">BATHROOMS</span>
+          <h3>Bathroom remodeling</h3>
+          <p>Walk-in showers, tub-to-shower conversions, waterproofing, tile, vanities and ventilation done to code.</p>
+          <div class="service-meta"><span>Typical timeline</span><span>2–4 weeks</span></div>
+        </article>
+        <article class="service">
+          <span class="service-code">BASEMENTS</span>
+          <h3>Basement finishing</h3>
+          <p>Framing, insulation, egress windows, drywall, flooring and a bathroom or wet bar if you want one.</p>
+          <div class="service-meta"><span>Typical timeline</span><span>5–9 weeks</span></div>
+        </article>
+        <article class="service">
+          <span class="service-code">ADDITIONS</span>
+          <h3>Additions &amp; structural</h3>
+          <p>Room additions, load-bearing wall removal, beams and foundations, with engineering and permits handled for you.</p>
+          <div class="service-meta"><span>Typical timeline</span><span>10–16 weeks</span></div>
+        </article>
+        <article class="service">
+          <span class="service-code">EXTERIOR</span>
+          <h3>Decks, siding &amp; roofing</h3>
+          <p>Composite and wood decks, siding replacement, windows, doors and roofing repairs that hold up to the weather.</p>
+          <div class="service-meta"><span>Typical timeline</span><span>1–4 weeks</span></div>
+        </article>
+        <article class="service">
+          <span class="service-code">INTERIOR</span>
+          <h3>Flooring, drywall &amp; carpentry</h3>
+          <p>Hardwood and LVP floors, trim and built-ins, drywall repair and paint for single rooms or whole floors.</p>
+          <div class="service-meta"><span>Typical timeline</span><span>3–15 days</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band projects-band" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Recent projects</h2>
+        <p>A selection of finished work. Each sheet lists the scope, size and how long we were on site.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="kitchen" aria-pressed="false">Kitchens</button>
+        <button class="filter" type="button" data-filter="bath" aria-pressed="false">Baths</button>
+        <button class="filter" type="button" data-filter="interior" aria-pressed="false">Basements &amp; interior</button>
+        <button class="filter" type="button" data-filter="exterior" aria-pressed="false">Additions &amp; exterior</button>
+      </div>
+      <div class="projects" id="project-grid">
+        <article class="sheet" data-cat="kitchen">
+          <div class="plate"><svg><use href="#d-kitchen"/></svg><span class="plate-label">Add project photo</span></div>
+          <div class="titleblock">
+            <div class="tb-main"><h3>Open-plan kitchen</h3><p>Wall removed, new island, quartz tops</p></div>
+            <div class="tb-sheet"><small>SHEET</small><b>A-101</b></div>
+            <dl class="tb-specs"><div><dt>Area</dt><dd>280 sq ft</dd></div><div><dt>On site</dt><dd>7 weeks</dd></div><div><dt>Location</dt><dd>Chicago, IL</dd></div></dl>
+          </div>
+        </article>
+        <article class="sheet" data-cat="bath">
+          <div class="plate"><svg><use href="#d-bath"/></svg><span class="plate-label">Add project photo</span></div>
+          <div class="titleblock">
+            <div class="tb-main"><h3>Primary bath, curbless shower</h3><p>Full gut, heated floor, frameless glass</p></div>
+            <div class="tb-sheet"><small>SHEET</small><b>A-102</b></div>
+            <dl class="tb-specs"><div><dt>Area</dt><dd>110 sq ft</dd></div><div><dt>On site</dt><dd>3 weeks</dd></div><div><dt>Location</dt><dd>Chicago, IL</dd></div></dl>
+          </div>
+        </article>
+        <article class="sheet" data-cat="exterior">
+          <div class="plate"><svg><use href="#d-addition"/></svg><span class="plate-label">Add project photo</span></div>
+          <div class="titleblock">
+            <div class="tb-main"><h3>Single-story rear addition</h3><p>Family room, new foundation and roofline</p></div>
+            <div class="tb-sheet"><small>SHEET</small><b>A-103</b></div>
+            <dl class="tb-specs"><div><dt>Area</dt><dd>384 sq ft</dd></div><div><dt>On site</dt><dd>14 weeks</dd></div><div><dt>Location</dt><dd>Chicago, IL</dd></div></dl>
+          </div>
+        </article>
+        <article class="sheet" data-cat="interior">
+          <div class="plate"><svg><use href="#d-basement"/></svg><span class="plate-label">Add project photo</span></div>
+          <div class="titleblock">
+            <div class="tb-main"><h3>Finished basement</h3><p>Media room, wet bar, egress window</p></div>
+            <div class="tb-sheet"><small>SHEET</small><b>A-104</b></div>
+            <dl class="tb-specs"><div><dt>Area</dt><dd>950 sq ft</dd></div><div><dt>On site</dt><dd>8 weeks</dd></div><div><dt>Location</dt><dd>Chicago, IL</dd></div></dl>
+          </div>
+        </article>
+        <article class="sheet" data-cat="exterior">
+          <div class="plate"><svg><use href="#d-deck"/></svg><span class="plate-label">Add project photo</span></div>
+          <div class="titleblock">
+            <div class="tb-main"><h3>Composite deck &amp; railing</h3><p>Two levels, aluminum rail, stair lighting</p></div>
+            <div class="tb-sheet"><small>SHEET</small><b>A-105</b></div>
+            <dl class="tb-specs"><div><dt>Area</dt><dd>420 sq ft</dd></div><div><dt>On site</dt><dd>2 weeks</dd></div><div><dt>Location</dt><dd>Chicago, IL</dd></div></dl>
+          </div>
+        </article>
+        <article class="sheet" data-cat="kitchen">
+          <div class="plate"><svg><use href="#d-kitchen"/></svg><span class="plate-label">Add project photo</span></div>
+          <div class="titleblock">
+            <div class="tb-main"><h3>Galley kitchen refresh</h3><p>Cabinet refacing, tile backsplash, lighting</p></div>
+            <div class="tb-sheet"><small>SHEET</small><b>A-106</b></div>
+            <dl class="tb-specs"><div><dt>Area</dt><dd>140 sq ft</dd></div><div><dt>On site</dt><dd>3 weeks</dd></div><div><dt>Location</dt><dd>Chicago, IL</dd></div></dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How a job runs</p>
+        <h2>Five steps from first call to final walkthrough</h2>
+      </div>
+      <ol class="process">
+        <li><h3>Site visit</h3><p>We measure, look behind what we can, and talk through what you want and what it will take.</p></li>
+        <li><h3>Written quote</h3><p>An itemized scope and fixed price within a few days. No surprise line items later.</p></li>
+        <li><h3>Permits &amp; schedule</h3><p>We pull permits, order materials and give you a start date and a week-by-week plan.</p></li>
+        <li><h3>Build</h3><p>The same crew every day, a clean site each evening, and updates from Rafal as work moves.</p></li>
+        <li><h3>Walkthrough</h3><p>We fix the punch list together, pass final inspection and hand over warranty paperwork.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band projects-band" id="about">
+    <div class="wrap about">
+      <div class="plate"><svg><use href="#d-house"/></svg><span class="plate-label">Add photo of Rafal on site</span></div>
+      <div class="about-copy">
+        <p class="eyebrow">About RD Group</p>
+        <h2>Owner-run. Rafal is on every job.</h2>
+        <p>RD Group, Inc. is run by Rafal Dmochowski, a builder who learned the trade on job sites before running his own crews. He still visits every project, meets every client, and signs off on the work before the final walkthrough.</p>
+        <p>We keep a small, steady crew and take on a limited number of projects at a time, so the schedule we give you is one we can keep.</p>
+        <dl class="creds">
+          <div><dt>Founded</dt><dd>20XX</dd></div>
+          <div><dt>License no.</dt><dd>Add license number</dd></div>
+          <div><dt>Insurance</dt><dd>General liability &amp; workers' comp</dd></div>
+          <div><dt>Warranty</dt><dd>Written workmanship warranty</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band reviews-band" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Client reviews</p>
+        <h2>What homeowners say</h2>
+        <p>These three slots are placeholders. Paste in real reviews from Google or Houzz with the client's permission.</p>
+      </div>
+      <div class="reviews">
+        <figure class="review">
+          <span class="tag-placeholder">Placeholder</span>
+          <blockquote>Paste a client review about a kitchen project here. Two to four sentences reads best.</blockquote>
+          <figcaption>Client first name, last initial · Kitchen remodel</figcaption>
+        </figure>
+        <figure class="review">
+          <span class="tag-placeholder">Placeholder</span>
+          <blockquote>Paste a client review about a bathroom or basement project here.</blockquote>
+          <figcaption>Client first name, last initial · Bathroom remodel</figcaption>
+        </figure>
+        <figure class="review">
+          <span class="tag-placeholder">Placeholder</span>
+          <blockquote>Paste a client review about an addition or exterior project here.</blockquote>
+          <figcaption>Client first name, last initial · Home addition</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="contact">
+    <div class="wrap contact">
+      <div class="contact-info">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="eyebrow">Contact</p>
+          <h2>Book a free on-site estimate</h2>
+          <p>Tell us a little about the project and we'll call you back within one business day.</p>
+        </div>
+        <dl class="info-list">
+          <div><dt>Phone</dt><dd><a href="tel:+17739369244">773-936-9244</a></dd></div>
+          <div><dt>Email</dt><dd><span class="tag-placeholder" style="color:var(--amber-text)">New email coming</span></dd></div>
+          <div><dt>Website</dt><dd><a href="https://www.rdgroup.info">www.rdgroup.info</a></dd></div>
+          <div><dt>Service area</dt><dd>Chicago and nearby suburbs</dd></div>
+        </dl>
+        <table class="hours" aria-label="Office hours">
+          <tr><td>Monday – Friday</td><td>7:00 am – 5:00 pm</td></tr>
+          <tr><td>Saturday</td><td>By appointment</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <form class="quote" id="quote-form" novalidate>
+        <h3>Request an estimate</h3>
+        <div class="row-2">
+          <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email"></div>
+        <div class="row-2">
+          <div class="field"><label for="q-type">Project type</label>
+            <select id="q-type" name="project">
+              <option>Kitchen remodel</option><option>Bathroom remodel</option><option>Basement finishing</option><option>Addition or structural</option><option>Deck, siding or roofing</option><option>Something else</option>
+            </select>
+          </div>
+          <div class="field"><label for="q-when">Ideal start</label>
+            <select id="q-when" name="timing">
+              <option>As soon as possible</option><option>In 1–3 months</option><option>In 3–6 months</option><option>Just planning</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="q-zip">Project ZIP code</label><input id="q-zip" name="zip" inputmode="numeric" autocomplete="postal-code"></div>
+        <div class="field"><label for="q-msg">About the project</label><textarea id="q-msg" name="message" placeholder="Rooms involved, rough size, anything that's not working today"></textarea></div>
+        <button class="btn btn-dark" type="submit">Send request</button>
+        <p class="form-status" id="form-status" role="status" hidden></p>
+        <p class="form-note">We only use your details to follow up on this request.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="band" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Are you licensed and insured?</summary><p>Yes. RD Group carries general liability and workers' compensation insurance, and we're happy to send certificates before you sign anything.</p></details>
+        <details><summary>Do you charge for estimates?</summary><p>No. The site visit and written quote are free. Design drawings or engineering, when a project needs them, are quoted separately up front.</p></details>
+        <details><summary>Who handles permits and inspections?</summary><p>We do. We pull the permits, schedule inspections and meet the inspector on site.</p></details>
+        <details><summary>How do payments work?</summary><p>A deposit to schedule the job, progress payments tied to finished milestones, and the final payment after the walkthrough is complete.</p></details>
+        <details><summary>Can we stay in the house during the remodel?</summary><p>Usually, yes. We seal off work areas with dust barriers, protect floors, and clean up at the end of every day.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap cta-row">
+      <h2>Planning a remodel? Let's walk through it on site.</h2>
+      <div class="hero-actions" style="margin:0">
+        <a class="btn btn-dark" href="#contact">Get a Free Estimate</a>
+        <a class="btn btn-ghost" href="tel:+17739369244">Call 773-936-9244</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#top" aria-label="RD Group home" style="color:var(--on-ink)">
+        <svg viewBox="0 0 120 120" aria-hidden="true" style="width:2.6rem;height:2.6rem"><path d="M10 54 L60 16 L110 54" fill="none" stroke="#E8A317" stroke-width="8"/><g fill="none" stroke="currentColor" stroke-width="9"><path d="M30 100 V56 H50 L57 63 V73 L50 80 H30"/><path d="M42 80 L53 100"/><path d="M68 56 V100 H82 L92 90 V66 L82 56 Z"/></g><path d="M16 108 H104" stroke="currentColor" stroke-width="5"/></svg>
+        <span><span class="brand-name">RD GROUP</span><span class="brand-sub">KITCHENS · BATHROOMS</span></span>
+      </a>
+      <p>Major home repairs, kitchens and bathrooms, for homeowners in Chicago and nearby suburbs.</p>
+    </div>
+    <div><h4>Services</h4><ul><li><a href="#services">Kitchens</a></li><li><a href="#services">Bathrooms</a></li><li><a href="#services">Basements</a></li><li><a href="#services">Additions</a></li><li><a href="#services">Exterior</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#projects">Projects</a></li><li><a href="#process">Process</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>773-936-9244</li><li>www.rdgroup.info</li><li>Mon–Fri 7–5</li><li>Facebook · Instagram</li></ul></div>
+  </div>
+  <div class="wrap footer-base">
+    <span>© <span id="year">2026</span> RD Group, Inc. All rights reserved.</span>
+    <span>License # ———— · Fully insured</span>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" style="color:var(--on-ink)" href="tel:+17739369244">Call</a>
+  <a class="btn btn-amber" href="#contact">Free Estimate</a>
+</div>
+
+<script>
+(function () {
+  var toggle = document.getElementById('menu-toggle');
+  var nav = document.getElementById('nav');
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+  });
+
+  var filters = document.querySelectorAll('.filter');
+  var sheets = document.querySelectorAll('#project-grid .sheet');
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      filters.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      sheets.forEach(function (s) { s.hidden = !(f === 'all' || s.getAttribute('data-cat') === f); });
+    });
+  });
+
+  // No backend: wire this form to Formspree, Netlify Forms or similar before launch.
+  var form = document.getElementById('quote-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.elements.name.value.trim();
+    var phone = form.elements.phone.value.trim();
+    status.hidden = false;
+    if (!name || !phone) { status.textContent = 'Add your name and phone number so we can call you back.'; return; }
+    status.textContent = 'Thanks, ' + name.split(' ')[0] + '. Your request is ready to send once the form is connected to an email service.';
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

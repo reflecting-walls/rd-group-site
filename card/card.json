@@ -1,0 +1,63 @@
+{
+  "slug": "rafal-dmochowski",
+  "profile": {
+    "firstName": "Rafal",
+    "lastName": "Dmochowski",
+    "title": "Owner & Project Lead",
+    "company": "RD Group, Inc.",
+    "headline": "Kitchens, bathrooms and major home repairs, built to last.",
+    "bio": "I run every RD Group project personally, from the first walkthrough to the final punch list. One point of contact, a written scope, and a crew that treats your home like their own.",
+    "photo": "media/rafal-placeholder.svg",
+    "cover": "media/cover-placeholder.svg",
+    "logo": "../assets/logo/rd-logo-reversed.svg",
+    "credentials": ["Licensed & insured", "Owner on every job", "Free in-home estimates"]
+  },
+  "contact": {
+    "mobile": "773-936-9244",
+    "sms": "773-936-9244",
+    "office": "",
+    "email": "",
+    "website": "https://www.rdgroup.info",
+    "address": { "street": "", "city": "Palatine", "region": "IL", "postal": "", "country": "USA" },
+    "serviceArea": "Palatine and communities within 30 miles",
+    "hours": "Mon–Sat · 7am–6pm"
+  },
+  "actions": {
+    "estimateLabel": "Get a free estimate",
+    "estimateUrl": "",
+    "bookingUrl": "",
+    "formEndpoint": ""
+  },
+  "services": ["Kitchen remodeling", "Bathroom remodeling", "Basements", "Flooring", "Tile & stone", "Major home repairs"],
+  "gallery": [
+    { "src": "media/project-placeholder-1.svg", "title": "Primary bath remodel", "location": "Palatine, IL", "tags": ["bathroom"], "url": "../index.html#work" },
+    { "src": "media/project-placeholder-2.svg", "title": "Open-plan kitchen", "location": "Arlington Heights, IL", "tags": ["kitchen"], "url": "../index.html#work" },
+    { "src": "media/project-placeholder-3.svg", "title": "Walk-in shower", "location": "Schaumburg, IL", "tags": ["bathroom"], "url": "../index.html#work" }
+  ],
+  "reviews": {
+    "sources": [
+      { "name": "Google", "icon": "google", "rating": 0, "count": 0, "url": "" },
+      { "name": "Yelp", "icon": "yelp", "rating": 0, "count": 0, "url": "" },
+      { "name": "Angi", "icon": "angi", "rating": 0, "count": 0, "url": "" }
+    ],
+    "featured": []
+  },
+  "links": [
+    { "label": "See our recent projects", "url": "../index.html#work", "icon": "grid" },
+    { "label": "Kitchen & bath services", "url": "../index.html#services", "icon": "tool" }
+  ],
+  "socials": [
+    { "network": "facebook", "url": "" },
+    { "network": "instagram", "url": "" },
+    { "network": "houzz", "url": "" },
+    { "network": "nextdoor", "url": "" }
+  ],
+  "theme": { "accent": "#A88553", "mode": "dark" },
+  "seo": {
+    "title": "Rafal Dmochowski · RD Group, Inc. · Digital Business Card",
+    "description": "Save Rafal Dmochowski's contact, call or text RD Group, Inc. for kitchen and bathroom remodeling in Palatine and communities within 30 miles.",
+    "image": "",
+    "indexable": true,
+    "canonical": "https://www.rdgroup.info/card/"
+  }
+}

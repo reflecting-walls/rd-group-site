@@ -1,0 +1,23 @@
+/* RD Group, Inc. shared design tokens (site, card, admin).
+   Direction: quiet luxury. Warm white, charcoal, brushed-brass accent, big photography.
+   Fonts: load with
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,200..700&family=Hanken+Grotesk:wght@400;500;600&display=swap"> */
+:root {
+  --bg: #FAFAF8;          /* page */
+  --surface: #FFFFFF;     /* cards, panels */
+  --stone: #EEECE7;       /* alternate bands */
+  --line: #E1DED7;        /* hairlines */
+  --ink: #16181A;         /* text, primary buttons */
+  --ink-soft: #55595E;    /* secondary text */
+  --night: #0F1113;       /* dark bands, footer */
+  --on-night: #F3F2EE;
+  --on-night-soft: #A3A6A9;
+  --brass: #A88553;       /* accent: rules, icons, stars, on dark */
+  --brass-text: #7A5C31;  /* accent text on light backgrounds (AA) */
+
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;   /* use font-stretch:125%, weight 300 for big headings */
+  --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 2px;
+  --wrap: 76rem;
+}

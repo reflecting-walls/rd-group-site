@@ -1,0 +1,6 @@
+# Functions check admin access themselves (admin JWT or the cron secret).
+[functions.sync-reviews]
+verify_jwt = false
+
+[functions.publish]
+verify_jwt = false
