@@ -308,6 +308,7 @@ function quoteForm(c, id) {
   </div>
   <div class="field"><label for="${id}-type">Project</label><select id="${id}-type" name="project">${services.map((s) => `<option>${esc(s.name)}</option>`).join('')}<option>Something else</option></select></div>
   <div class="field"><label for="${id}-msg">Details</label><textarea id="${id}-msg" name="message" placeholder="Rooms, rough size, timing"></textarea></div>
+  <div class="hp" aria-hidden="true"><label for="${id}-website">Leave this empty</label><input id="${id}-website" name="website" tabindex="-1" autocomplete="off"></div>
   <button class="btn btn-ink" type="submit">Send request</button>
   <p class="form-status" role="status" hidden></p>
 </form>`;

@@ -250,3 +250,4 @@ a.source:hover { background: #191C1F; }
 .lightbox { position: fixed; inset: 0; z-index: 90; background: rgba(10,11,12,.94); display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); }
 .lightbox img { max-height: 86vh; width: auto; max-width: 100%; }
 .lightbox button { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 1rem); right: calc(env(safe-area-inset-right, 0px) + 1rem); background: none; border: 1px solid rgba(255,255,255,.3); color: #fff; font: 500 .75rem/1 var(--f-body); letter-spacing: .16em; padding: .7rem .9rem; cursor: pointer; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }

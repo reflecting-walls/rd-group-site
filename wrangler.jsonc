@@ -1,12 +1,23 @@
-// Cloudflare Workers config: serves the static build (dist/) as Worker static
-// assets. _redirects and _headers are copied into dist/ by the build and applied as usual.
-// Not needed (and ignored) if the site is deployed as a Cloudflare Pages project.
+// Cloudflare Workers config: worker/index.js handles POST /api/estimate (emails the
+// estimate form through Email Routing) and serves the static build (dist/) for everything
+// else. _redirects and _headers are copied into dist/ by the build and applied as usual.
 {
   "name": "rd-group-site",
+  "main": "worker/index.js",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  // Sends only to addresses verified under Email Routing → Destination addresses.
+  "send_email": [{ "name": "EMAIL" }],
+  "vars": {
+    // Where estimate requests go. Change to support@rdgroup.info once that address forwards.
+    "ESTIMATE_TO": "rddmoch@gmail.com",
+    // Sender shown on the email. Must be an address on rdgroup.info (no mailbox needed).
+    "ESTIMATE_FROM": "website@rdgroup.info"
   }
 }

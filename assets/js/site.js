@@ -56,7 +56,7 @@
     box.querySelector('button').focus();
   });
 
-  // Estimate form -> a form service (Formspree, Web3Forms...) that emails Rafal.
+  // Estimate form -> /api/estimate (worker/index.js), which emails Rafal via Cloudflare Email Routing.
   document.querySelectorAll('[data-lead-form]').forEach(function (form) {
     var status = form.querySelector('.form-status');
     var endpoint = form.dataset.endpoint;

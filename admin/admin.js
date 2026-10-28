@@ -88,7 +88,7 @@
       var st = store.status();
       var todo = [];
       if (!biz.email) todo.push(['Add the new business email', '#settings']);
-      if (!biz.formEndpoint) todo.push(['Connect the estimate form to email (form service link)', '#settings']);
+      if (!biz.formEndpoint) todo.push(['Connect the estimate form to email', '#settings']);
       if (!biz.license) todo.push(['Add the license number', '#settings']);
       sources.forEach(function (s) { if (!s.profile_url) todo.push(['Add the ' + s.name + ' profile link', '#reviews']); if (!s.rating) todo.push(['Add the ' + s.name + ' rating and review count', '#reviews']); });
       if (projects.some(function (p) { return p.sample; })) todo.push(['Replace the sample projects with real ones', '#projects']);
@@ -426,7 +426,7 @@
         '<form id="bform" novalidate><section class="panel"><h2>Contact</h2><div class="grid-3">' +
         field('legalName', 'Company name', b.legalName) + field('founder', 'Owner', b.founder) + field('phone', 'Phone (as shown)', b.phone) +
         field('phoneE164', 'Phone (for links)', b.phoneE164, { placeholder: '+17739369244' }) + field('email', 'Email', b.email, { type: 'email', placeholder: 'New email address' }) + field('website', 'Website', b.website, { type: 'url' }) +
-        field('formEndpoint', 'Estimate form link', b.formEndpoint, { type: 'url', full: true, placeholder: 'https://formspree.io/f/…', help: 'Where the website\u2019s estimate form sends requests. Create a free form at Formspree (or Web3Forms) with Rafal\u2019s email and paste its link here. Until then the form asks visitors to call.' }) +
+        field('formEndpoint', 'Estimate form address', b.formEndpoint, { full: true, placeholder: '/api/estimate', help: 'Where the website\u2019s estimate form sends requests. Keep /api/estimate: the site emails each request through Cloudflare Email Routing (recipient set in wrangler.jsonc). Leave empty to make the form ask visitors to call.' }) +
         field('streetAddress', 'Street address', b.streetAddress, { placeholder: 'Optional, hidden if blank' }) + field('city', 'City', b.city) + field('state', 'State', b.state) +
         '</div></section><section class="panel"><h2>Credentials</h2><div class="grid-3">' +
         field('license', 'License number', b.license) + field('foundedYear', 'Year founded', b.foundedYear) + field('yearsExperience', 'Years of experience', b.yearsExperience) +
