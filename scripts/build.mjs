@@ -139,7 +139,7 @@ ${(meta.jsonld || []).map(ld).join('\n')}
 
 function header(c, active) {
   const { business: b } = c.data;
-  const nav = [['/kitchen-remodeling/', 'Kitchens'], ['/bathroom-remodeling/', 'Bathrooms'], ['/home-remodeling/', 'More Projects'], ['/projects/', 'Projects'], ['/reviews/', 'Reviews'], ['/service-area/', 'Service Area']];
+  const nav = [['/kitchen-remodeling/', 'Kitchens'], ['/bathroom-remodeling/', 'Bathrooms'], ['/home-remodeling/', 'Other Spaces'], ['/projects/', 'Projects'], ['/reviews/', 'Reviews'], ['/service-area/', 'Service Area']];
   const hours = b.hours.filter((h) => h.open).map((h) => `${h.days} ${h.open}–${h.close}`).join(' · ');
   return `
 <div class="topbar"><div class="wrap"><span class="hours">${esc(hours)}</span><a href="tel:${esc(b.phoneE164)}">Call Rafal · ${esc(b.phone)}</a></div></div>
@@ -532,7 +532,7 @@ function pageTown(c, t) {
   <div class="wrap pd-body">
     <div class="head"><p class="label">${esc(t.name)} remodeling</p><h2 class="h-md">What we build in ${esc(t.name)}</h2></div>
     <div class="prose">${t.body.map((x) => `<p>${esc(x)}</p>`).join('')}
-      <p>Services in ${esc(t.name)}: <a href="${c.u('/kitchen-remodeling/')}">kitchen remodeling</a>, <a href="${c.u('/bathroom-remodeling/')}">bathroom remodeling</a> and <a href="${c.u('/home-remodeling/')}">basements and other projects</a>.</p>
+      <p>Services in ${esc(t.name)}: <a href="${c.u('/kitchen-remodeling/')}">kitchen remodeling</a>, <a href="${c.u('/bathroom-remodeling/')}">bathroom remodeling</a> and <a href="${c.u('/home-remodeling/')}">basements and other spaces</a>.</p>
     </div>
   </div>
 </section>
