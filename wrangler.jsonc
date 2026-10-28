@@ -1,0 +1,12 @@
+// Cloudflare Workers config: serves the static build (dist/) as Worker static
+// assets. _redirects and _headers are copied into dist/ by the build and applied as usual.
+// Not needed (and ignored) if the site is deployed as a Cloudflare Pages project.
+{
+  "name": "rd-group-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
