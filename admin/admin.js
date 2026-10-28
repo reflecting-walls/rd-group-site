@@ -427,10 +427,11 @@
         field('legalName', 'Company name', b.legalName) + field('founder', 'Owner', b.founder) + field('phone', 'Phone (as shown)', b.phone) +
         field('phoneE164', 'Phone (for links)', b.phoneE164, { placeholder: '+17739369244' }) + field('email', 'Email', b.email, { type: 'email', placeholder: 'New email address' }) + field('website', 'Website', b.website, { type: 'url' }) +
         field('formEndpoint', 'Estimate form address', b.formEndpoint, { full: true, placeholder: '/api/estimate', help: 'Where the website\u2019s estimate form sends requests. Keep /api/estimate: the site emails each request through Cloudflare Email Routing (recipient set in wrangler.jsonc). Leave empty to make the form ask visitors to call.' }) +
-        field('streetAddress', 'Street address', b.streetAddress, { placeholder: 'Optional, hidden if blank' }) + field('city', 'City', b.city) + field('state', 'State', b.state) +
+        field('streetAddress', 'Street address', b.streetAddress, { placeholder: 'Optional, hidden if blank' }) + field('city', 'City', b.city) + field('state', 'State', b.state) + field('postalCode', 'ZIP code', b.postalCode, { placeholder: '60067' }) +
         '</div></section><section class="panel"><h2>Credentials</h2><div class="grid-3">' +
         field('license', 'License number', b.license) + field('foundedYear', 'Year founded', b.foundedYear) + field('yearsExperience', 'Years of experience', b.yearsExperience) +
         field('projectsCompleted', 'Projects completed', b.projectsCompleted) + field('warrantyYears', 'Warranty (years)', b.warrantyYears) + field('priceRange', 'Price range', b.priceRange, { type: 'select', options: ['$$', '$$$', '$$$$'] }) +
+        field('kitchenCostRange', 'Typical kitchen remodel cost', b.kitchenCostRange, { placeholder: '$45,000 to $95,000', help: 'Shown in the kitchen cost FAQ. Search engines and AI assistants quote real numbers.' }) + field('bathroomCostRange', 'Typical bathroom remodel cost', b.bathroomCostRange, { placeholder: '$25,000 to $55,000', help: 'Shown in the bathroom cost FAQ.' }) +
         '</div><p class="muted small">Numbers you fill in here appear on the home page. Blank ones stay hidden.</p></section>' +
         '<section class="panel"><h2>Hours and profiles</h2><div class="grid-2">' +
         field('hours_text', 'Hours', hours, { type: 'textarea', rows: 4, help: 'One line per row: Days | open | close. Leave open blank for Closed.' }) +

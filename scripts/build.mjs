@@ -77,6 +77,12 @@ async function loadData() {
   const sourceById = Object.fromEntries(sources.map((s) => [s.id, s]));
   reviews = reviews.filter((r) => sourceById[r.source_id]);
   reviews.sort((a, b) => (b.featured - a.featured) || (b.rating - a.rating) || String(b.published_at).localeCompare(String(a.published_at)));
+  // Cost FAQs quote Rafal's typical ranges once they're filled in (Admin → Business info).
+  const ranges = { kitchen: business.kitchenCostRange, bathroom: business.bathroomCostRange };
+  for (const s of services) {
+    const r = ranges[s.tag];
+    if (r) for (const f of s.faqs || []) if (/cost/i.test(f.q)) f.a = `Most of our full ${s.tag} remodels run ${r}, depending mainly on size, finishes and whether walls or plumbing move. ` + f.a.replace(/^Most full kitchen remodels we build fall in a wide range set mainly by cabinetry, counters and whether walls or plumbing move\. |^Cost depends mostly on size, tile selection, and whether plumbing moves\. /, '');
+  }
   return { business, services, towns, faqs, projects, media, sources, sourceById, reviews };
 }
 
@@ -134,8 +140,7 @@ function head(c, meta) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(meta.title)}</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="${esc(meta.description)}">
+${PREVIEW ? '<meta name="claude:viewport-fit-sides" content="cover">\n' : ''}<meta name="description" content="${esc(meta.description)}">
 <link rel="canonical" href="${esc(canonical)}">
 ${meta.noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots" content="index, follow, max-image-preview:large">'}
 <meta property="og:type" content="website">
@@ -225,7 +230,8 @@ function businessLD(c) {
     priceRange: b.priceRange,
     description: b.summary,
     founder: { '@type': 'Person', name: b.founder, jobTitle: 'Owner', url: b.website + '/card/' },
-    ...(b.foundedYear ? { foundingDate: b.foundedYear } : {}),
+    ...(b.foundedYear ? { foundingDate: String(b.foundedYear) } : {}),
+    ...(b.license ? { hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Contractor license', identifier: String(b.license) } } : {}),
     address: { '@type': 'PostalAddress', addressLocality: b.city, addressRegion: b.state, ...(b.streetAddress ? { streetAddress: b.streetAddress } : {}), ...(b.postalCode ? { postalCode: b.postalCode } : {}), addressCountry: 'US' },
     geo: b.geo ? { '@type': 'GeoCoordinates', latitude: b.geo.latitude, longitude: b.geo.longitude } : undefined,
     areaServed: [
@@ -367,12 +373,13 @@ function pageHome(c) {
   const description = `RD Group, Inc. remodels kitchens and bathrooms in Palatine and the Northwest Suburbs. Owner-run by Rafal Dmochowski. Free in-home consultation and fixed written quote. Call ${b.phone}.`;
   const facts = [
     b.yearsExperience && ['Years building', b.yearsExperience + '+'],
+    !b.yearsExperience && b.foundedYear && ['Founded', String(b.foundedYear)],
     b.projectsCompleted && ['Projects completed', b.projectsCompleted + '+'],
     ['Bath remodel', '3–5 wks'],
     ['Kitchen remodel', '6–10 wks'],
     b.warrantyYears && ['Workmanship warranty', b.warrantyYears + ' yrs'],
   ].filter(Boolean).slice(0, 3);
-  return head(c, { path: '/', title, description, image: heroImg?.url, jsonld: [businessLD(c), faqLD(faqs)] }) + header(c, '/') + `
+  return head(c, { path: '/', title, description, image: heroImg?.url, jsonld: [businessLD(c), { '@context': 'https://schema.org', '@type': 'WebSite', '@id': b.website + '/#website', url: b.website + '/', name: b.legalName, inLanguage: 'en-US', publisher: { '@id': b.website + '/#business' } }, faqLD(faqs)] }) + header(c, '/') + `
 <section class="hero">
   <div class="hero-media">${heroImg ? mediaImg(c, heroImg, { eager: true, alt: '' }) : `<img src="${c.u('/assets/img/materials/calacatta.webp')}" alt="" width="1600" height="1200" fetchpriority="high">`}</div>
   <div class="wrap hero-grid">
@@ -483,7 +490,7 @@ function pageProjects(c) {
   <div class="wrap">
     <div class="head">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="${c.u('/')}">Home</a><span>/</span><span>Projects</span></nav>
-      <h1 class="h-xl">Projects</h1>
+      <h1 class="h-lg">Kitchen and bathroom remodeling projects in Palatine and the Northwest Suburbs</h1>
       <p class="lede">Finished remodels with the town, scope, materials and how long we were on site.</p>
     </div>
     ${projects.length ? `<div class="filters" role="group" aria-label="Filter by type"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>${tags.map((t) => `<button class="chip" type="button" data-filter="${esc(t)}" aria-pressed="false">${esc(tagLabel(t))}</button>`).join('')}</div>
@@ -574,7 +581,7 @@ function pageArea(c) {
   <div class="wrap areas">
     <div class="head">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="${c.u('/')}">Home</a><span>/</span><span>Service area</span></nav>
-      <h1 class="h-xl">Service area</h1>
+      <h1 class="h-lg">Remodeling service area: every town within ${c.data.business.serviceRadiusMiles || 30} miles of Palatine, IL</h1>
       <p class="lede">RD Group is based in Palatine, Illinois. We take kitchen, bathroom and interior remodels in every town within ${c.data.business.serviceRadiusMiles || 30} miles of Palatine, including the towns below. Not sure if you're in range? Call ${esc(c.data.business.phone)}.</p>
     </div>
     <ul class="area-list">${towns.map((t) => `<li>${t.published ? `<a href="${c.u(townPagePath(t))}">${esc(t.name)}, ${t.state}</a>` : `${esc(t.name)}, ${t.state}`}</li>`).join('')}</ul>
