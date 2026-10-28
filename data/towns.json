@@ -35,157 +35,352 @@
   "slug": "arlington-heights",
   "name": "Arlington Heights",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "palatine",
    "mount-prospect",
    "rolling-meadows"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Arlington Heights borders Palatine to the south, so it's one of the towns RD Group works in most. We remodel kitchens and bathrooms all over the village, from the blocks around downtown to the neighborhoods around Lake Arlington and the Arlington Park site.",
+  "body": [
+   "Arlington Heights grew fastest in the 1950s and 1960s, when its population went from about 5,000 in 1930 to nearly 65,000 by 1970. That means most homes here are postwar ranches, Cape Cods, split-levels and early two-stories, with a smaller number of older homes near downtown. Kitchens from that era tend to be closed off from the living space, and many houses still have one full bath upstairs. Common projects are taking out a wall to open the kitchen, moving the sink to an island, and turning a dated hall bath into a walk-in shower bath.",
+   "The village requires an Alteration, Remodel, Repair permit for residential remodels, filed through its Civic Access Portal. The application needs scaled construction plans and the contractor's proposal, every contractor on the job has to hold a valid license, and the homeowner is usually listed as a contact on the permit too. Initial plan review typically takes about five business days. We prepare the plans, file the permit, and meet the inspectors on site.",
+   "Every Arlington Heights project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Do I need a permit to remodel a kitchen or bathroom in Arlington Heights?",
+    "a": "Yes, for remodels that change layout, plumbing, electrical or structure. RD Group files the village's Alteration, Remodel, Repair permit through the Civic Access Portal and handles the inspections."
+   },
+   {
+    "q": "How long does Arlington Heights take to approve a remodel permit?",
+    "a": "The village's typical initial review time is about five business days once the application is complete. We build that into the start date in your quote."
+   },
+   {
+    "q": "Can you open up the kitchen in an older Arlington Heights ranch?",
+    "a": "Usually, yes. If the wall is load-bearing, we size a beam and include the structural details in the permit drawings. Rafal checks this at the first visit."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "rolling-meadows",
   "name": "Rolling Meadows",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "palatine",
    "arlington-heights",
    "schaumburg"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Rolling Meadows sits right between Palatine and Arlington Heights, a few minutes from RD Group. We remodel kitchens and baths throughout the city, in the original 1950s neighborhoods as well as the newer townhome and two-story areas.",
+  "body": [
+   "Rolling Meadows was built quickly. Builder Kimball Hill started selling homes in the early 1950s on land once planned as a golf course, the first families moved in in 1953, and about 700 homes had sold by 1955, when it incorporated as a city. Many of those original homes are compact ranches with small kitchens and one bathroom. They respond well to remodeling: opening the kitchen to the living room, borrowing a closet to enlarge a bath, or adding a second bathroom often changes how the whole house works.",
+   "Rolling Meadows is a city, not a village, and its Community Development Department issues residential remodel permits. The application lists each contractor's license number, the cost of electrical, plumbing and HVAC work, and the plumbing fixture count when plumbing changes. We handle the paperwork and schedule the inspections.",
+   "Every Rolling Meadows project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Do I need a permit to remodel a bathroom in Rolling Meadows?",
+    "a": "If plumbing, electrical or walls change, yes. The City of Rolling Meadows issues the permit, and RD Group files it and handles the inspections."
+   },
+   {
+    "q": "Can you add a second bathroom to an original Rolling Meadows ranch?",
+    "a": "Often, yes. Common options are splitting a large bedroom, borrowing closet space, or finishing part of a basement where there is one. Rafal looks at the plumbing route at the free consultation."
+   },
+   {
+    "q": "How long does a bathroom remodel take in Rolling Meadows?",
+    "a": "Most full bathroom remodels take 3 to 5 weeks on site. A tub-to-shower conversion can be done in 1 to 2 weeks."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "inverness",
   "name": "Inverness",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "palatine",
    "barrington",
    "hoffman-estates"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Inverness is RD Group's neighbor to the west of Palatine. Homes here are larger and mostly custom built, so kitchen and bath remodels tend to be bigger projects with more custom work.",
+  "body": [
+   "Inverness was planned by developer Arthur T. McIntosh, who began assembling about 1,500 acres in 1926 and set a minimum lot size of one acre. The first homes, near the Inverness Golf Club, were occupied by 1939, and most later homes were custom built for individual owners. Because of that, no two kitchens are alike. Typical projects are full kitchen remodels with custom cabinetry and large islands, primary suites with curbless showers and freestanding tubs, and updating 1970s to 1990s finishes in otherwise solid houses.",
+   "The Village of Inverness requires a building permit for any remodel or alteration, including plumbing and electrical work. Some homes on larger lots have septic systems, and work that touches them needs its own permit. We pull every permit and coordinate inspections with the village Building Department.",
+   "Every Inverness project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Do I need a permit to remodel in Inverness?",
+    "a": "Yes. The Village of Inverness requires a permit for any remodel or alteration, and for plumbing and electrical work. RD Group files it for you."
+   },
+   {
+    "q": "Do you handle custom cabinetry and large kitchen remodels in Inverness?",
+    "a": "Yes. Full kitchen remodels with custom or semi-custom cabinetry, stone counters and layout changes are our main work. A full kitchen usually takes 6 to 10 weeks on site after cabinets arrive."
+   },
+   {
+    "q": "My Inverness home has a septic system. Does that affect a bathroom remodel?",
+    "a": "Replacing fixtures usually doesn't, but adding a bathroom can change the load on the system. We check this before quoting and include any required permits."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "barrington",
   "name": "Barrington",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "inverness",
    "lake-zurich",
    "palatine"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Barrington is about ten minutes from RD Group's Palatine base. We remodel kitchens and bathrooms in the village's historic homes as well as in the newer houses around it.",
+  "body": [
+   "Barrington was incorporated in 1865, and its National Register Historic District is described by the village as one of the largest frame-home districts in Illinois, with Folk, Craftsman, Victorian and Queen Anne houses. Remodeling a kitchen or bath in an older frame house means planning for what's behind the plaster: uneven framing, older wiring and plumbing, and rooms that weren't designed for modern appliances. We plan for that from the start, so the quote reflects the house you actually have.",
+   "Interior kitchen and bath remodels need a village building permit. For homes in the Historic District, exterior changes, such as new windows or a bump-out, may also go through the village's historic and architectural review. We'll tell you at the first visit whether your project triggers that review.",
+   "Every Barrington project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Can you remodel a kitchen in a historic Barrington home?",
+    "a": "Yes. We keep the character of the house, such as trim profiles and window placement, while updating the wiring, plumbing and layout behind it."
+   },
+   {
+    "q": "Does a Barrington Historic District home need extra approval for a remodel?",
+    "a": "Interior kitchen and bath work generally needs only a building permit. Exterior changes may need historic or architectural review. We'll confirm with the village before your project is scheduled."
+   },
+   {
+    "q": "Do you work in Barrington Hills, South Barrington and Lake Barrington too?",
+    "a": "Yes. We work in all of the Barrington-area villages within 30 miles of Palatine."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "schaumburg",
   "name": "Schaumburg",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "hoffman-estates",
    "rolling-meadows",
    "palatine"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Schaumburg is just southwest of Palatine. RD Group remodels kitchens and bathrooms in its ranch neighborhoods, two-story subdivisions, townhomes and condos.",
+  "body": [
+   "Much of Schaumburg's housing dates from the 1960s and 1970s. Builder Alfred Campanelli's Weathersfield subdivision, mostly one-level ranches built in phases over two decades, makes up about a fifth of the village's housing. Ranches like these are good candidates for an open kitchen, since the attic above makes it easier to deal with walls and ceilings. Later Schaumburg subdivisions added split-levels and two-stories, where the usual projects are updating builder-grade kitchens and converting tubs to walk-in showers.",
+   "Schaumburg requires a permit for bathroom remodels. Countertop replacement, refacing cabinets, and replacing cabinets in the same layout with no plumbing or electrical changes are exempt. Permit drawings are drawn at 1/4-inch scale. Once the permit is issued, the village holds a pre-project site meeting, followed by rough and final inspections. Contractors also need a Schaumburg business license before a permit can be issued. We handle all of it.",
+   "Every Schaumburg project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Do I need a permit to remodel a bathroom in Schaumburg?",
+    "a": "Yes. The village requires a permit for bathroom remodels. Countertop swaps and same-layout cabinet replacements without plumbing or electrical changes are exempt."
+   },
+   {
+    "q": "What inspections does Schaumburg require for a bathroom remodel?",
+    "a": "A pre-project site meeting after the permit is issued, then rough plumbing, electrical, mechanical and framing inspections, an insulation inspection, and final inspections. We schedule and attend them."
+   },
+   {
+    "q": "Can you open up the kitchen in a Weathersfield ranch?",
+    "a": "In many cases, yes. Rafal checks which walls are load-bearing at the free consultation and includes any beam in the permit drawings."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "hoffman-estates",
   "name": "Hoffman Estates",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "schaumburg",
    "inverness",
    "barrington"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Hoffman Estates is a short drive southwest of Palatine. RD Group remodels kitchens and bathrooms in its original 1950s neighborhoods and in the newer subdivisions to the west.",
+  "body": [
+   "Hoffman Estates began in 1954, when Sam and Jack Hoffman of Father and Son Construction bought a 160-acre farm for a subdivision. The first residents moved in late in 1955, on half-acre lots, and the village incorporated in 1959. Those first homes are now about 70 years old and often have their original kitchen layout and a single bath. Newer subdivisions on the village's west side have larger two-stories where owners mostly want to update finishes and enlarge primary bathrooms.",
+   "Kitchen and bathroom remodels that change plumbing, electrical or walls need a village building permit. We prepare the drawings, file the permit, and meet the village inspectors on site for rough and final inspections.",
+   "Every Hoffman Estates project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Do I need a permit to remodel a kitchen in Hoffman Estates?",
+    "a": "If the work changes plumbing, electrical, walls or layout, yes. RD Group pulls the village permit and handles the inspections."
+   },
+   {
+    "q": "What does a remodel of an original 1950s Hoffman Estates home usually involve?",
+    "a": "Often an updated electrical panel and new circuits, replacing old supply and drain lines in the walls we open, and reworking the layout for modern appliances. We include these items in the written quote."
+   },
+   {
+    "q": "How long does a kitchen remodel take in Hoffman Estates?",
+    "a": "Plan on 6 to 10 weeks on site for a full kitchen remodel once cabinets are delivered."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "mount-prospect",
   "name": "Mount Prospect",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "arlington-heights",
    "palatine",
    "buffalo-grove"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Mount Prospect is just south of Arlington Heights and about fifteen minutes from RD Group. We remodel kitchens and bathrooms in its prewar homes near downtown and throughout its postwar neighborhoods.",
+  "body": [
+   "Mount Prospect's biggest growth came in the 1950s, when its population jumped 370 percent to almost 19,000. Most homes are postwar brick ranches, Cape Cods and split-levels, with older homes around the downtown train station. Bathrooms from that era are small and often have original tile and cast-iron tubs. Converting the tub to a walk-in shower and rebuilding the bath with modern ventilation are among our most common projects here.",
+   "Mount Prospect's Bathroom Remodel Supplement is specific. The whole bathroom must be GFCI protected, new wiring runs in conduit, recessed lights must be IC and wet-location rated, fans must vent outside, showers need anti-scald valves, and bathroom windows need tempered glass. If opened walls reveal life-safety code problems, those generally have to be fixed too. We design to those rules from the start, so inspections go smoothly.",
+   "Every Mount Prospect project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "What does Mount Prospect require for a bathroom remodel permit?",
+    "a": "A permit application signed by the homeowner, the contractor's signed estimate, and a plan showing circuits, device locations and the exhaust vent. RD Group prepares and submits all of it."
+   },
+   {
+    "q": "Does my bathroom fan need to vent outside in Mount Prospect?",
+    "a": "Yes. The village requires bathroom exhaust fans to vent to the exterior. We route the vent through the roof or a wall."
+   },
+   {
+    "q": "Do I need to replace my bathroom window when I remodel in Mount Prospect?",
+    "a": "Bathroom windows must have safety-tempered glass. If yours doesn't, we include a replacement or a tempered glass insert in the quote."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "buffalo-grove",
   "name": "Buffalo Grove",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "arlington-heights",
    "lake-zurich",
    "palatine"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Buffalo Grove is northeast of Palatine, on both sides of the Cook and Lake county line. RD Group remodels kitchens and bathrooms in its first ranch neighborhoods and in the larger subdivisions that came later.",
+  "body": [
+   "Buffalo Grove's first neighborhood was built along Bernard Drive in 1957 and 1958 by Al Frank. The homes were small ranches, and most had no basement. Large subdivisions followed, including Levitt's Strathmore, and the village went from 164 residents at incorporation in 1958 to nearly 43,000 by 2000. In the early ranches, without a basement, plumbing changes go through the slab or crawlspace, which affects the cost of moving a sink or adding a bath. In the later two-stories, owners usually want to replace builder-grade kitchens and fiberglass tub surrounds.",
+   "Kitchen and bathroom remodels that change plumbing, electrical or walls need a village building permit. We prepare the drawings, pull the permit, and handle the inspections.",
+   "Every Buffalo Grove project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Can you move plumbing in a Buffalo Grove ranch without a basement?",
+    "a": "Yes, but it usually means cutting and patching the slab or working in the crawlspace. Rafal checks at the first visit and prices it in the quote, so there are no surprises."
+   },
+   {
+    "q": "Do I need a permit for a kitchen remodel in Buffalo Grove?",
+    "a": "If the work changes plumbing, electrical or layout, yes. RD Group pulls the village permit and handles the inspections."
+   },
+   {
+    "q": "Do you work on both the Cook County and Lake County sides of Buffalo Grove?",
+    "a": "Yes. We work throughout Buffalo Grove."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "lake-zurich",
   "name": "Lake Zurich",
   "state": "IL",
-  "published": false,
+  "published": true,
   "nearby": [
    "barrington",
    "buffalo-grove",
    "palatine"
   ],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "intro": "Lake Zurich is about twenty minutes north of Palatine. RD Group remodels kitchens and baths in its lakeside homes, older village neighborhoods and newer subdivisions.",
+  "body": [
+   "Lake Zurich started as a summer resort. After World War II, most of its summer cottages were winterized for year-round living, and the village grew from 3,800 residents in 1966 to over 18,000 by 2000. That history shows up in remodeling. Converted cottages near the lake often have low ceilings, added-on rooms and plumbing that has been patched over decades, so we plan for some surprises behind the walls. Homes in the newer subdivisions are more predictable, and owners usually want bigger kitchens and updated primary baths.",
+   "Kitchen and bathroom remodels that change plumbing, electrical or walls need a village building permit. We prepare the drawings, pull the permit, and meet the inspectors on site.",
+   "Every Lake Zurich project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Can you remodel a kitchen in an older Lake Zurich lake cottage?",
+    "a": "Yes. We open walls carefully, upgrade wiring and plumbing as needed, and include those items in the written quote so the price holds."
+   },
+   {
+    "q": "Do I need a permit to remodel a bathroom in Lake Zurich?",
+    "a": "If the work changes plumbing, electrical or walls, yes. RD Group pulls the village permit and handles the inspections."
+   },
+   {
+    "q": "Do you work in Hawthorn Woods, Kildeer and Long Grove too?",
+    "a": "Yes. All three are within our 30-mile service area around Palatine."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "prospect-heights",
   "name": "Prospect Heights",
   "state": "IL",
-  "published": false,
-  "nearby": [],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "published": true,
+  "nearby": [
+   "wheeling",
+   "arlington-heights",
+   "mount-prospect"
+  ],
+  "intro": "Prospect Heights is just east of Arlington Heights and about fifteen minutes from RD Group. We remodel kitchens and bathrooms in its single-family homes and multifamily buildings.",
+  "body": [
+   "Prospect Heights started in 1935, when developers Carlton Smith and Allen Dawson built the first homes on farmland along Elmhurst Road. It stayed unincorporated for decades, and by 1955 it had almost 600 homes, many on half-acre lots. It became a city in 1976. Properties not on the city water system use private wells. For a kitchen or bath remodel, that can mean planning around water treatment equipment, pressure tanks and supply lines that a village-water home wouldn't have.",
+   "Remodels that change plumbing, electrical or walls need a City of Prospect Heights building permit. We prepare the drawings, file the permit, and handle the inspections.",
+   "Every Prospect Heights project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "My Prospect Heights home is on a well. Does that change a bathroom remodel?",
+    "a": "Usually only a little. We check water pressure and any treatment equipment before designing the shower, and size fixtures to match."
+   },
+   {
+    "q": "Do I need a permit to remodel in Prospect Heights?",
+    "a": "If the work changes plumbing, electrical or walls, yes. RD Group files the city permit and handles the inspections."
+   },
+   {
+    "q": "Do you remodel condos and townhomes in Prospect Heights?",
+    "a": "Yes. For multifamily buildings, we also follow the association's rules on work hours, deliveries and insurance certificates."
+   }
+  ],
   "tier": 1
  },
  {
   "slug": "wheeling",
   "name": "Wheeling",
   "state": "IL",
-  "published": false,
-  "nearby": [],
-  "intro": "",
-  "body": [],
-  "faqs": [],
+  "published": true,
+  "nearby": [
+   "prospect-heights",
+   "buffalo-grove",
+   "arlington-heights"
+  ],
+  "intro": "Wheeling is east of Palatine along Dundee Road and Milwaukee Avenue. RD Group remodels kitchens and bathrooms in its single-family homes, townhomes and condos.",
+  "body": [
+   "Wheeling went from 916 residents in 1950 to nearly 15,000 by 1970, so most of its single-family homes are postwar ranches and split-levels, with townhome and condo complexes added later. In the houses, popular projects are opening the kitchen and adding a walk-in shower. In condos, the work has to fit the building, so we plan around shared walls, stacked plumbing and association rules.",
+   "Wheeling's rules are stricter than most. A permit is required for any kitchen or bathroom remodel, and even for replacing cabinets. The submittal includes existing and proposed layouts, an electrical drawing with panel schedule, a plumbing riser if fixtures are added, and exhaust venting details. In condos and other multifamily buildings, removing or changing interior walls requires a licensed design professional. Contractors must be registered and bonded with the village before a permit is issued. We handle all of it.",
+   "Every Wheeling project starts with a free in-home consultation. Rafal measures the space, looks at what's behind the walls where he can, and talks through how you want the room to work. A few days later you get an itemized written quote with a fixed price and a start date."
+  ],
+  "faqs": [
+   {
+    "q": "Do I need a permit to replace kitchen cabinets in Wheeling?",
+    "a": "Yes. Wheeling requires a permit for cabinet replacement in a kitchen or bathroom, as well as for full remodels. RD Group files it for you."
+   },
+   {
+    "q": "Can you move walls in a Wheeling condo?",
+    "a": "Yes, with drawings from a licensed design professional, which Wheeling requires for wall changes in multifamily buildings. We coordinate that and the association approval."
+   },
+   {
+    "q": "Is RD Group registered with the Village of Wheeling?",
+    "a": "Wheeling requires contractors to be registered and bonded before a permit is issued. We complete that registration before your permit is filed."
+   }
+  ],
   "tier": 1
  },
  {
