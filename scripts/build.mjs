@@ -129,6 +129,29 @@ function trackingBody(b) {
   return out.length ? out.join('\n') + '\n' : '';
 }
 
+// ---------- digital card (card/index.html is rendered by card.js; this adds crawlable HTML) ----------
+function cardLD(d) {
+  const p = d.profile || {}, c = d.contact || {}, site = (c.website || '').replace(/\/$/, ''), url = d.seo?.canonical || site + '/card/';
+  const tel = (c.mobile || '').replace(/\D/g, '');
+  const sameAs = [...(d.socials || []).map((x) => x.url), ...(d.reviews?.sources || []).map((x) => x.url)].filter(Boolean);
+  return {
+    '@context': 'https://schema.org', '@type': 'ProfilePage', url,
+    mainEntity: { '@type': 'Person', name: [p.firstName, p.lastName].filter(Boolean).join(' '), jobTitle: p.title || undefined, image: p.photo && !/placeholder/.test(p.photo) ? url + p.photo : undefined,
+      telephone: tel ? '+1' + tel.slice(-10) : undefined, email: c.email || undefined, url, sameAs: sameAs.length ? sameAs : undefined,
+      worksFor: { '@type': 'HomeAndConstructionBusiness', '@id': site + '/#business', name: p.company, url: site } },
+  };
+}
+const cardHead = (d) => `<script type="application/ld+json" id="ld-card">${JSON.stringify(cardLD(d)).replace(/</g, '\\u003c')}</script>\n`;
+function cardStatic(d) {
+  const p = d.profile || {}, c = d.contact || {}, name = [p.firstName, p.lastName].filter(Boolean).join(' ');
+  const tel = (c.mobile || '').replace(/\D/g, '');
+  return `<div class="noscript card-static"><h1>${esc(name)}</h1><p>${esc(p.title || '')}, ${esc(p.company || '')}${c.address?.city ? ` · ${esc(c.address.city)}, ${esc(c.address.region || '')}` : ''}</p>
+${p.headline ? `<p>${esc(p.headline)}</p>` : ''}${p.bio ? `<p>${esc(p.bio)}</p>` : ''}
+${(d.services || []).length ? `<ul>${d.services.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+<p>${tel ? `<a href="tel:+1${tel.slice(-10)}">${esc(c.mobile)}</a>` : ''}${c.email ? ` · <a href="mailto:${esc(c.email)}">${esc(c.email)}</a>` : ''}${c.website ? ` · <a href="${esc(c.website)}">${esc(c.website.replace(/^https?:\/\/(www\.)?/, ''))}</a>` : ''}</p>
+${c.serviceArea ? `<p>Service area: ${esc(c.serviceArea)}</p>` : ''}</div>`;
+}
+
 // ---------- page chrome ----------
 function head(c, meta) {
   const { business: b } = c.data;
@@ -637,7 +660,12 @@ async function main() {
   for (const d of ['assets', 'card', 'data', ...(process.env.ADMIN === '1' ? ['admin'] : [])]) await copyDir(d, d);
   const cardPage = path.join(OUT, 'card/index.html');
   const cardHtml = await fs.readFile(cardPage, 'utf8').catch(() => null);
-  if (cardHtml) await fs.writeFile(cardPage, cardHtml.replace('</head>', () => trackingHead(data.business) + '</head>').replace(/<body([^>]*)>\n?/, (m) => m.replace(/\n?$/, '\n') + trackingBody(data.business)));
+  if (cardHtml) {
+    const card = await readJSON('../card/card.json').catch(() => null);
+    let html = cardHtml.replace('</head>', () => (card ? cardHead(card) : '') + trackingHead(data.business) + '</head>').replace(/<body([^>]*)>\n?/, (m) => m.replace(/\n?$/, '\n') + trackingBody(data.business));
+    if (card) html = html.replace(/<noscript><div class="noscript">[\s\S]*?<\/noscript>/, () => cardStatic(card));
+    await fs.writeFile(cardPage, html);
+  }
   for (const f of ['_headers', '_redirects']) await fs.copyFile(path.join(ROOT, f), path.join(OUT, f));
 
   const site = data.business.website.replace(/\/$/, '');

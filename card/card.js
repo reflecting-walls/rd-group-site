@@ -409,17 +409,23 @@
     set('meta[property="og:description"]', "content", s.description);
     set('meta[property="og:image"]', "content", s.image ? new URL(s.image, location.href).href : (p.cover ? new URL(p.cover, location.href).href : ""));
     set('meta[name="robots"]', "content", s.indexable === false ? "noindex, follow" : "index, follow");
-    const ld = {
-      "@context": "https://schema.org", "@type": "Person", name: fullName(p), jobTitle: p.title, image: p.photo ? new URL(p.photo, location.href).href : undefined,
-      telephone: e164(c.mobile) || undefined, email: c.email || undefined, url: s.canonical || cardUrl(),
-      sameAs: [...(d.socials || []).map((x) => x.url), ...(d.reviews?.sources || []).map((x) => x.url)].filter(Boolean),
-      worksFor: { "@type": "HomeAndConstructionBusiness", name: p.company, url: c.website || undefined, telephone: e164(c.mobile) || undefined, areaServed: c.serviceArea || undefined,
-        address: c.address?.city ? { "@type": "PostalAddress", streetAddress: c.address.street || undefined, addressLocality: c.address.city, addressRegion: c.address.region, postalCode: c.address.postal || undefined, addressCountry: "US" } : undefined,
-        aggregateRating: (() => { const a = aggregate(d.reviews?.sources); return a ? { "@type": "AggregateRating", ratingValue: a.avg, reviewCount: a.count } : undefined; })() }
-    };
+    const ld = cardLD(d, { photo: p.photo && !/placeholder/.test(p.photo) ? new URL(p.photo, location.href).href : undefined, url: s.canonical || cardUrl() });
     let tag = document.getElementById("ld-card"); if (!tag) { tag = document.createElement("script"); tag.type = "application/ld+json"; tag.id = "ld-card"; document.head.appendChild(tag); }
     tag.textContent = JSON.stringify(ld);
     if (s.canonical) { let l = document.head.querySelector('link[rel="canonical"]'); if (!l) { l = document.createElement("link"); l.rel = "canonical"; document.head.appendChild(l); } l.href = s.canonical; }
+  }
+
+  // ProfilePage + Person schema. The business itself is described once, on the main site (#business),
+  // so no ratings are self-served here. scripts/build.mjs writes the same markup into the static HTML.
+  function cardLD(d, o) {
+    const p = d.profile || {}, c = d.contact || {}, site = (c.website || "").replace(/\/$/, "");
+    const sameAs = [...(d.socials || []).map((x) => x.url), ...(d.reviews?.sources || []).map((x) => x.url)].filter(Boolean);
+    return {
+      "@context": "https://schema.org", "@type": "ProfilePage", url: o.url,
+      mainEntity: { "@type": "Person", name: [p.firstName, p.lastName].filter(Boolean).join(" "), jobTitle: p.title || undefined, image: o.photo,
+        telephone: e164(c.mobile) || undefined, email: c.email || undefined, url: o.url, sameAs: sameAs.length ? sameAs : undefined,
+        worksFor: site ? { "@type": "HomeAndConstructionBusiness", "@id": site + "/#business", name: p.company, url: site } : { "@type": "Organization", name: p.company } },
+    };
   }
 
   function mount(d, root) { render(d, root); wire(d, root); applySeo(d); root.removeAttribute("aria-busy"); }
