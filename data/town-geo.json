@@ -1,0 +1,22 @@
+{
+  "_note": "Approximate town centers, used to show the nearest real projects on town pages that have none of their own.",
+  "Palatine": [42.110, -88.034],
+  "Arlington Heights": [42.088, -87.981],
+  "Rolling Meadows": [42.084, -88.013],
+  "Inverness": [42.118, -88.098],
+  "Barrington": [42.154, -88.136],
+  "Schaumburg": [42.033, -88.083],
+  "Hoffman Estates": [42.063, -88.123],
+  "Mount Prospect": [42.066, -87.937],
+  "Buffalo Grove": [42.151, -87.960],
+  "Lake Zurich": [42.197, -88.093],
+  "Prospect Heights": [42.095, -87.938],
+  "Wheeling": [42.139, -87.929],
+  "Kildeer": [42.171, -88.048],
+  "Streamwood": [42.026, -88.178],
+  "Evanston": [42.045, -87.688],
+  "Wilmette": [42.072, -87.723],
+  "Glencoe": [42.135, -87.758],
+  "Northfield": [42.100, -87.781],
+  "Chicago": [41.878, -87.630]
+}
