@@ -896,6 +896,342 @@
   "sort": 2
  },
  {
+  "id": "r-palatine-hall-1",
+  "project_id": "r-palatine-hall",
+  "url": "assets/img/projects/hall-bathroom-tub-shower-mosaic-niche-palatine-il/palatine-il-espresso-double-vanity-framed-mirrors.webp",
+  "url_sm": "assets/img/projects/hall-bathroom-tub-shower-mosaic-niche-palatine-il/palatine-il-espresso-double-vanity-framed-mirrors-800.webp",
+  "width": 720,
+  "height": 1600,
+  "alt": "Espresso double vanity with marble-look top, framed mirrors and matte black faucets in a Palatine, IL hall bathroom",
+  "caption": "Espresso double vanity with framed mirrors",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 0
+ },
+ {
+  "id": "r-palatine-hall-2",
+  "project_id": "r-palatine-hall",
+  "url": "assets/img/projects/hall-bathroom-tub-shower-mosaic-niche-palatine-il/palatine-il-white-tile-tub-shower-black-fixtures.webp",
+  "url_sm": "assets/img/projects/hall-bathroom-tub-shower-mosaic-niche-palatine-il/palatine-il-white-tile-tub-shower-black-fixtures-800.webp",
+  "width": 720,
+  "height": 1600,
+  "alt": "Tub-shower tiled in large white tile with matte black fixtures and a mosaic niche, Palatine, IL",
+  "caption": "Tub-shower with matte black fixtures",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 1
+ },
+ {
+  "id": "r-palatine-hall-3",
+  "project_id": "r-palatine-hall",
+  "url": "assets/img/projects/hall-bathroom-tub-shower-mosaic-niche-palatine-il/palatine-il-black-white-mosaic-shower-niche.webp",
+  "url_sm": "assets/img/projects/hall-bathroom-tub-shower-mosaic-niche-palatine-il/palatine-il-black-white-mosaic-shower-niche-800.webp",
+  "width": 720,
+  "height": 1600,
+  "alt": "Black and white mosaic shower niche set in large white wall tile",
+  "caption": "Mosaic shower niche",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 2
+ },
+ {
+  "id": "r-hr-bath-1",
+  "project_id": "r-hr-bath",
+  "url": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-double-vanity-walk-in-shower.webp",
+  "url_sm": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-double-vanity-walk-in-shower-800.webp",
+  "width": 1600,
+  "height": 999,
+  "alt": "White double vanity with black pivot mirrors and a sea glass tile walk-in shower, Palatine, IL",
+  "caption": "Double vanity and walk-in shower",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 0
+ },
+ {
+  "id": "r-hr-bath-2",
+  "project_id": "r-hr-bath",
+  "url": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-white-double-vanity-pivot-mirrors.webp",
+  "url_sm": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-white-double-vanity-pivot-mirrors-800.webp",
+  "width": 844,
+  "height": 1600,
+  "alt": "White double vanity with matte black faucets and pivot mirrors over a hexagon tile floor",
+  "caption": "White double vanity with pivot mirrors",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 1
+ },
+ {
+  "id": "r-hr-bath-3",
+  "project_id": "r-hr-bath",
+  "url": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-sea-glass-tile-shower-hexagon-floor.webp",
+  "url_sm": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-sea-glass-tile-shower-hexagon-floor-800.webp",
+  "width": 798,
+  "height": 1600,
+  "alt": "Walk-in shower in sea glass green subway tile beside a black and white hexagon floor, Palatine, IL",
+  "caption": "Sea glass tile shower and hexagon floor",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 2
+ },
+ {
+  "id": "r-hr-bath-4",
+  "project_id": "r-hr-bath",
+  "url": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-hexagon-floor-sea-glass-wainscot.webp",
+  "url_sm": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-hexagon-floor-sea-glass-wainscot-800.webp",
+  "width": 862,
+  "height": 1600,
+  "alt": "Black and white hexagon tile floor and sea glass green tile wainscot leading to the shower window, Palatine, IL",
+  "caption": "Hexagon floor and sea glass tile",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 3
+ },
+ {
+  "id": "r-hr-bath-5",
+  "project_id": "r-hr-bath",
+  "url": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-bathroom-before.webp",
+  "url_sm": "assets/img/projects/sea-glass-tile-bathroom-hexagon-floor-palatine-il/palatine-il-bathroom-before-800.webp",
+  "width": 720,
+  "height": 1600,
+  "alt": "The bathroom before the remodel, with the original vanity and tile floor",
+  "caption": "Before",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Palatine",
+  "kind": "before",
+  "sort": 4
+ },
+ {
+  "id": "r-hr-family-1",
+  "project_id": "r-hr-family",
+  "url": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-charcoal-brick-fireplace-oak-floor.webp",
+  "url_sm": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-charcoal-brick-fireplace-oak-floor-800.webp",
+  "width": 900,
+  "height": 1600,
+  "alt": "Family room with a charcoal painted brick fireplace wall and refinished oak floor, Palatine, IL",
+  "caption": "Charcoal painted brick fireplace",
+  "tags": [
+   "interior"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 0
+ },
+ {
+  "id": "r-hr-family-2",
+  "project_id": "r-hr-family",
+  "url": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-family-room-recessed-lights-sliding-door.webp",
+  "url_sm": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-family-room-recessed-lights-sliding-door-800.webp",
+  "width": 1600,
+  "height": 1194,
+  "alt": "Family room with recessed lights, refinished oak floor and painted brick fireplace, Palatine, IL",
+  "caption": "The finished family room",
+  "tags": [
+   "interior"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 1
+ },
+ {
+  "id": "r-hr-family-3",
+  "project_id": "r-hr-family",
+  "url": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-painted-brick-fireplace-detail.webp",
+  "url_sm": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-painted-brick-fireplace-detail-800.webp",
+  "width": 900,
+  "height": 1600,
+  "alt": "Painted brick fireplace with raised hearth",
+  "caption": "Fireplace and hearth",
+  "tags": [
+   "interior"
+  ],
+  "town": "Palatine",
+  "kind": "after",
+  "sort": 2
+ },
+ {
+  "id": "r-hr-family-4",
+  "project_id": "r-hr-family",
+  "url": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-family-room-before.webp",
+  "url_sm": "assets/img/projects/family-room-painted-brick-fireplace-palatine-il/palatine-il-family-room-before-800.webp",
+  "width": 791,
+  "height": 1600,
+  "alt": "The family room before the remodel, with wood paneling and the original floor",
+  "caption": "Before",
+  "tags": [
+   "interior"
+  ],
+  "town": "Palatine",
+  "kind": "before",
+  "sort": 3
+ },
+ {
+  "id": "r-lz2-bath-1",
+  "project_id": "r-lz2-bath",
+  "url": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-trough-sink-vanity-backlit-mirror.webp",
+  "url_sm": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-trough-sink-vanity-backlit-mirror-800.webp",
+  "width": 1600,
+  "height": 1061,
+  "alt": "Walnut-tone vanity with white trough sink and backlit mirror in a Lake Zurich, IL primary bathroom",
+  "caption": "Trough sink vanity and backlit mirror",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Lake Zurich",
+  "kind": "after",
+  "sort": 0
+ },
+ {
+  "id": "r-lz2-bath-2",
+  "project_id": "r-lz2-bath",
+  "url": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-walnut-vanity-trough-sink.webp",
+  "url_sm": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-walnut-vanity-trough-sink-800.webp",
+  "width": 1170,
+  "height": 768,
+  "alt": "Walnut-tone vanity with a white trough sink and two faucets over dark gray tile",
+  "caption": "Walnut-tone vanity",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Lake Zurich",
+  "kind": "after",
+  "sort": 1
+ },
+ {
+  "id": "r-lz2-bath-3",
+  "project_id": "r-lz2-bath",
+  "url": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-walk-in-shower-floating-bench.webp",
+  "url_sm": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-walk-in-shower-floating-bench-800.webp",
+  "width": 817,
+  "height": 1600,
+  "alt": "Walk-in shower with marble-look porcelain and floating bench, Lake Zurich, IL",
+  "caption": "Walk-in shower with floating bench",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Lake Zurich",
+  "kind": "after",
+  "sort": 2
+ },
+ {
+  "id": "r-lz2-bath-4",
+  "project_id": "r-lz2-bath",
+  "url": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-backlit-mirror-vanity.webp",
+  "url_sm": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-backlit-mirror-vanity-800.webp",
+  "width": 1273,
+  "height": 768,
+  "alt": "Large backlit mirror over a trough sink vanity",
+  "caption": "Backlit mirror",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Lake Zurich",
+  "kind": "after",
+  "sort": 3
+ },
+ {
+  "id": "r-lz2-bath-5",
+  "project_id": "r-lz2-bath",
+  "url": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-bathroom-before.webp",
+  "url_sm": "assets/img/projects/trough-sink-vanity-walk-in-shower-lake-zurich-il/lake-zurich-il-bathroom-before-800.webp",
+  "width": 1600,
+  "height": 1085,
+  "alt": "The bathroom before, with an old tub and tile",
+  "caption": "Before",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Lake Zurich",
+  "kind": "before",
+  "sort": 4
+ },
+ {
+  "id": "r-wilmette-1",
+  "project_id": "r-wilmette",
+  "url": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-frameless-glass-shower-freestanding-tub.webp",
+  "url_sm": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-frameless-glass-shower-freestanding-tub-800.webp",
+  "width": 1600,
+  "height": 1033,
+  "alt": "Frameless glass shower, freestanding tub and espresso vanity in a Wilmette, IL primary bathroom",
+  "caption": "Glass shower and freestanding tub",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Wilmette",
+  "kind": "after",
+  "sort": 0
+ },
+ {
+  "id": "r-wilmette-2",
+  "project_id": "r-wilmette",
+  "url": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-espresso-vanities-glass-shower.webp",
+  "url_sm": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-espresso-vanities-glass-shower-800.webp",
+  "width": 1299,
+  "height": 767,
+  "alt": "Espresso vanities with marble tops beside a frameless glass shower, Wilmette, IL",
+  "caption": "Vanities and shower",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Wilmette",
+  "kind": "after",
+  "sort": 1
+ },
+ {
+  "id": "r-wilmette-3",
+  "project_id": "r-wilmette",
+  "url": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-floor-to-ceiling-glass-shower.webp",
+  "url_sm": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-floor-to-ceiling-glass-shower-800.webp",
+  "width": 755,
+  "height": 1364,
+  "alt": "Floor-to-ceiling frameless glass shower under a sloped ceiling",
+  "caption": "Frameless glass shower",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Wilmette",
+  "kind": "after",
+  "sort": 2
+ },
+ {
+  "id": "r-wilmette-4",
+  "project_id": "r-wilmette",
+  "url": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-bathroom-before.webp",
+  "url_sm": "assets/img/projects/primary-bathroom-glass-shower-herringbone-floor-wilmette-il/wilmette-il-bathroom-before-800.webp",
+  "width": 1233,
+  "height": 767,
+  "alt": "The bathroom before, with a built-in tub deck and older glass shower",
+  "caption": "Before",
+  "tags": [
+   "bathroom"
+  ],
+  "town": "Wilmette",
+  "kind": "before",
+  "sort": 3
+ },
+ {
   "id": "m1-1",
   "project_id": "p1",
   "url": "assets/img/materials/calacatta.webp",
