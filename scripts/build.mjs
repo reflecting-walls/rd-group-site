@@ -188,7 +188,7 @@ ${trackingBody(b)}<a class="skip" href="#main">Skip to content</a>`;
 
 function header(c, active) {
   const { business: b } = c.data;
-  const nav = [['/kitchen-remodeling/', 'Kitchens'], ['/bathroom-remodeling/', 'Bathrooms'], ['/home-remodeling/', 'Other Spaces'], ['/projects/', 'Projects'], ['/reviews/', 'Reviews'], ['/service-area/', 'Service Area']];
+  const nav = [['/kitchen-remodeling/', 'Kitchens'], ['/bathroom-remodeling/', 'Bathrooms'], ['/home-remodeling/', 'Other Spaces'], ['/projects/', 'Projects'], ['/service-area/', 'Service Area']];
   const hours = b.hours.filter((h) => h.open).map((h) => `${h.days} ${h.open}–${h.close}`).join(' · ');
   return `
 <div class="topbar"><div class="wrap"><span class="hours">${esc(hours)}</span><a href="tel:${esc(b.phoneE164)}">Call Rafal · ${esc(b.phone)}</a></div></div>
@@ -222,7 +222,7 @@ function footer(c) {
   </div>
   <div class="wrap footer-base">
     <span>© ${new Date().getFullYear()} ${esc(b.legalName)}${b.license ? ` · License ${esc(b.license)}` : ''} · Licensed &amp; insured</span>
-    <span><a href="${c.u('/reviews/')}">Reviews</a> · <a href="${c.u('/service-area/')}">Service area</a></span>
+    <span><a href="${c.u('/#reviews')}">Reviews</a> · <a href="${c.u('/service-area/')}">Service area</a></span>
     <span class="credit">Site Developed and Maintained by <a href="https://rwmediapros.com/" target="_blank" rel="noopener">RW Media</a></span>
   </div>
 </footer>
@@ -325,7 +325,6 @@ function reviewsSection(c, { limit = 6, list = c.data.reviews, heading = 'What h
     </div>
     ${shown.length ? `<div class="reviews">${shown.map((r) => reviewCard(c, r)).join('\n')}</div>` : ''}
     ${anySample ? '<p class="sample-note">Preview: these are labeled sample reviews. Real reviews replace them once the review platforms are connected in the admin.</p>' : ''}
-    ${list.length > limit ? `<p style="margin-top:2rem"><a class="arrow-link" href="${c.u('/reviews/')}">Read all ${list.length} reviews</a></p>` : ''}
   </div>
 </section>`;
 }
@@ -418,7 +417,7 @@ function pageHome(c) {
       </div>
       <div class="rating-chips">
         ${o ? `<span><b>${o.avg.toFixed(1)}</b> <span class="stars">★★★★★</span> from ${o.count} reviews</span>` : ''}
-        ${c.data.sources.filter((s) => s.rating).map((s) => `<a href="${c.u('/reviews/')}"><b>${Number(s.rating).toFixed(1)}</b> ${esc(s.name)}</a>`).join('')}
+        ${c.data.sources.filter((s) => s.rating).map((s) => `<a href="#reviews"><b>${Number(s.rating).toFixed(1)}</b> ${esc(s.name)}</a>`).join('')}
         <span>Licensed &amp; insured</span><span>Free consultation</span>
       </div>
     </div>
@@ -616,15 +615,6 @@ ${estimateSection(c)}
 ` + footer(c);
 }
 
-function pageReviews(c) {
-  const p = '/reviews/';
-  return head(c, { path: p, title: 'Reviews | RD Group Kitchen & Bath Remodeling, Palatine IL', description: 'Read reviews of RD Group, Inc. from Google, Yelp, Angi, Houzz and more. Every review links to the original on its platform.', jsonld: [businessLD(c), crumbLD(c, [['Home', '/'], ['Reviews', p]])] }) + header(c, p) + `
-<section class="wrap" style="padding-block:clamp(2.5rem,5vw,4rem) 0"><nav class="crumbs" aria-label="Breadcrumb"><a href="${c.u('/')}">Home</a><span>/</span><span>Reviews</span></nav><h1 class="sr-only">Reviews of RD Group, Inc.</h1></section>
-${reviewsSection(c, { limit: 999, heading: 'Reviews from every platform', id: 'all-reviews' })}
-${estimateSection(c)}
-` + footer(c);
-}
-
 function page404(c) {
   return head(c, { path: '/404.html', title: 'Page not found | RD Group', description: 'This page has moved.', noindex: true }) + header(c, '') + `
 <section class="band"><div class="wrap cta"><p class="label">404</p><h1 class="h-lg">That page has moved</h1><p class="lede">Try the project gallery, or call ${esc(c.data.business.phone)}.</p><a class="btn btn-ink" href="${c.u('/projects/')}">View projects</a></div></section>
@@ -655,7 +645,6 @@ async function main() {
   for (const pr of data.projects) await render(`/projects/${pr.slug}/`, (c) => pageProject(c, pr));
   await render('/service-area/', pageArea);
   for (const t of data.towns.filter((t) => t.published)) await render(townPagePath(t), (c) => pageTown(c, t));
-  await render('/reviews/', pageReviews);
   await write('404.html', page404({ data, u: makeLinker('/404.html') }));
 
   // The admin ships only when ADMIN=1 is set on the host, i.e. once /admin/* is behind Cloudflare Access.
@@ -675,7 +664,7 @@ async function main() {
   await write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages, '/card/'].map((p) => `  <url><loc>${site}${p}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   await write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /admin/\n\n# AI search and assistant crawlers are welcome\nUser-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\nUser-agent: ChatGPT-User\nAllow: /\nUser-agent: PerplexityBot\nAllow: /\nUser-agent: Google-Extended\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\nUser-agent: Claude-SearchBot\nAllow: /\n\nSitemap: ${site}/sitemap.xml\n`);
   const b = data.business;
-  await write('llms.txt', `# ${b.legalName}\n\n> ${b.summary}\n\n- Owner: ${b.founder}\n- Phone: ${b.phone}\n- Based in: ${b.city}, ${b.state}\n- Service area: every town within ${b.serviceRadiusMiles || 30} miles of Palatine, IL, including ${data.towns.map((t) => t.name).join(', ')}\n- Typical timelines: bathroom remodel 3–5 weeks on site; kitchen remodel 6–10 weeks on site\n\n## Services\n${data.services.map((s) => `- [${s.name}](${site}/${s.slug}/): ${s.short}`).join('\n')}\n\n## Pages\n- [Projects](${site}/projects/): finished remodels with town, scope, materials and duration\n- [Reviews](${site}/reviews/): ratings and reviews from Google, Yelp, Angi, Houzz and others, linked to their sources\n- [Service area](${site}/service-area/)\n- [Contact card for ${b.founder}](${site}/card/)\n${data.projects.length ? `\n## Recent projects\n${data.projects.slice(0, 10).map((p) => `- [${p.title}](${site}/projects/${p.slug}/): ${p.summary || ''}`).join('\n')}\n` : ''}`);
+  await write('llms.txt', `# ${b.legalName}\n\n> ${b.summary}\n\n- Owner: ${b.founder}\n- Phone: ${b.phone}\n- Based in: ${b.city}, ${b.state}\n- Service area: every town within ${b.serviceRadiusMiles || 30} miles of Palatine, IL, including ${data.towns.map((t) => t.name).join(', ')}\n- Typical timelines: bathroom remodel 3–5 weeks on site; kitchen remodel 6–10 weeks on site\n\n## Services\n${data.services.map((s) => `- [${s.name}](${site}/${s.slug}/): ${s.short}`).join('\n')}\n\n## Pages\n- [Projects](${site}/projects/): finished remodels with town, scope, materials and duration\n- [Reviews](${site}/#reviews): ratings and reviews from Google, Yelp, Angi, Houzz and others, linked to their sources\n- [Service area](${site}/service-area/)\n- [Contact card for ${b.founder}](${site}/card/)\n${data.projects.length ? `\n## Recent projects\n${data.projects.slice(0, 10).map((p) => `- [${p.title}](${site}/projects/${p.slug}/): ${p.summary || ''}`).join('\n')}\n` : ''}`);
 
   console.log(`Built ${pages.length} pages into ${path.relative(ROOT, OUT)}/ (${data.projects.length} projects, ${data.reviews.length} reviews${SAMPLES ? ', samples included' : ''})`);
 }
