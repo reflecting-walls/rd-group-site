@@ -57,6 +57,7 @@ function mergeReview(reviews, r) {
 async function loadData() {
   const [services, towns, faqs] = await Promise.all([readJSON('services.json'), readJSON('towns.json'), readJSON('faqs.json')]);
   let [business, projects, media, sources, reviews] = await Promise.all(['business.json', 'projects.json', 'media.json', 'review-sources.json', 'reviews.json'].map(readJSON));
+  const geo = await readJSON('town-geo.json').catch(() => ({}));
   sources = sources.filter((x) => x.enabled !== false).sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0));
   await refreshReviews(sources, reviews);
   projects = projects.filter((p) => p.published).sort((a, b) => String(b.completed_on || '').localeCompare(String(a.completed_on || '')));
@@ -82,6 +83,18 @@ async function loadData() {
   for (const s of services) {
     const r = ranges[s.tag];
     if (r) for (const f of s.faqs || []) if (/cost/i.test(f.q)) f.a = `Most of our full ${s.tag} remodels run ${r}, depending mainly on size, finishes and whether walls or plumbing move. ` + f.a.replace(/^Most full kitchen remodels we build fall in a wide range set mainly by cabinetry, counters and whether walls or plumbing move\. |^Cost depends mostly on size, tile selection, and whether plumbing moves\. /, '');
+  }
+  // Towns with no project of their own show the nearest real work; each such town gets a different lead photo where it can.
+  const km = (a, b) => (geo[a] && geo[b] ? Math.hypot((geo[a][0] - geo[b][0]) * 111, (geo[a][1] - geo[b][1]) * 82) : Infinity);
+  const usedCovers = new Set();
+  for (const t of towns.filter((x) => x.published)) {
+    const here = projects.filter((x) => x.town === t.name && x.cover);
+    if (here.length) { usedCovers.add(here[0].cover.id); continue; }
+    t.nearProjects = projects.filter((x) => x.cover && km(t.name, x.town) < Infinity).sort((a, b) => km(t.name, a.town) - km(t.name, b.town));
+  }
+  for (const t of towns.filter((x) => x.nearProjects)) {
+    t.heroProject = t.nearProjects.find((x) => !usedCovers.has(x.cover.id)) || t.nearProjects[0];
+    if (t.heroProject) usedCovers.add(t.heroProject.cover.id);
   }
   return { business, services, towns, faqs, projects, media, sources, sourceById, reviews };
 }
@@ -579,7 +592,7 @@ function pageTown(c, t) {
     <p class="lede">${esc(t.intro)}</p>
     <div class="hero-actions" style="margin-top:.5rem"><a class="btn btn-ink" href="#estimate">Free Consultation</a><a class="btn btn-line" href="tel:${esc(b.phoneE164)}">Call ${esc(b.phone)}</a></div>
   </div>
-  <div class="frame">${here[0]?.cover ? mediaImg(c, here[0].cover, { eager: true }) : `<img src="${c.u('/assets/img/materials/terrazzo.webp')}" alt="" width="1600" height="1200">`}</div>
+  <div class="frame">${here[0]?.cover ? mediaImg(c, here[0].cover, { eager: true }) : t.heroProject ? `${mediaImg(c, t.heroProject.cover, { eager: true })}<span class="frame-tag">Our project in ${esc(t.heroProject.town)}</span>` : `<img src="${c.u('/assets/img/materials/terrazzo.webp')}" alt="" width="1600" height="1200">`}</div>
 </section>
 <section class="band" style="padding-top:clamp(2rem,4vw,3rem)">
   <div class="wrap pd-body">
@@ -589,7 +602,7 @@ function pageTown(c, t) {
     </div>
   </div>
 </section>
-${here.length ? `<section class="band band-stone"><div class="wrap"><div class="head"><p class="label">Portfolio</p><h2 class="h-lg">Projects in ${esc(t.name)}</h2></div><div class="projects">${here.map((x) => projectCard(c, x)).join('')}</div></div></section>` : ''}
+${here.length ? `<section class="band band-stone"><div class="wrap"><div class="head"><p class="label">Portfolio</p><h2 class="h-lg">Projects in ${esc(t.name)}</h2></div><div class="projects">${here.map((x) => projectCard(c, x)).join('')}</div></div></section>` : t.nearProjects?.length ? `<section class="band band-stone"><div class="wrap"><div class="head"><p class="label">Portfolio</p><h2 class="h-lg">Recent projects near ${esc(t.name)}</h2></div><div class="projects">${[t.heroProject, ...t.nearProjects.filter((x) => x !== t.heroProject)].slice(0, 3).map((x) => projectCard(c, x)).join('')}</div></div></section>` : ''}
 ${reviewsSection(c, { list: hereReviews.length ? hereReviews : reviews, limit: 3, heading: hereReviews.length ? `Reviews from ${t.name}` : 'What homeowners say' })}
 ${t.faqs.length ? faqBlock(t.faqs, `Remodeling in ${t.name}`) : ''}
 <section class="band" style="padding-top:0"><div class="wrap"><p class="label" style="margin-bottom:1rem">Nearby</p><div class="tags">${nearby.map((n) => n.published ? `<a class="tag" href="${c.u(townPagePath(n))}">${esc(n.name)}</a>` : `<span class="tag">${esc(n.name)}</span>`).join('')}<a class="tag" href="${c.u('/service-area/')}">All towns</a></div></div></section>
