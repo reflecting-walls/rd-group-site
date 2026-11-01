@@ -10,6 +10,7 @@
 // Yelp ratings and their newest reviews are refreshed at every build.
 
 import fs from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -652,6 +653,33 @@ async function copyDir(src, dest) {
   try { await fs.cp(path.join(ROOT, src), path.join(OUT, dest), { recursive: true }); } catch (e) { if (e.code !== 'ENOENT') throw e; }
 }
 
+// Cache busting: append ?v=<content hash> to every local image, script, style and font
+// referenced from the built HTML (and card.json), so browsers fetch new files after each deploy.
+async function versionAssets() {
+  const hashes = new Map();
+  const hashOf = async (file) => {
+    if (!hashes.has(file)) hashes.set(file, await fs.readFile(file).then((b) => createHash('sha1').update(b).digest('hex').slice(0, 10), () => null));
+    return hashes.get(file);
+  };
+  const ref = /((?:src|href|content|poster|srcset)=["']|,\s+|url\(["']?|"(?:logo|photo|cover|url|src|image)":\s*")((?!https?:|data:|mailto:|tel:|#|\/\/)[^"'()\s?#,]+\.(?:svg|png|webp|jpe?g|avif|gif|js|css|woff2?))(?=["'\s),])/g;
+  const walk = async (dir) => (await fs.readdir(dir, { withFileTypes: true })).flatMap((e) => (e.isDirectory() ? [] : [path.join(dir, e.name)])).concat(...(await Promise.all((await fs.readdir(dir, { withFileTypes: true })).filter((e) => e.isDirectory() && e.name !== 'admin').map((e) => walk(path.join(dir, e.name))))));
+  const files = (await walk(OUT)).filter((f) => f.endsWith('.html') || f === path.join(OUT, 'card', 'card.json'));
+  for (const file of files) {
+    const src = await fs.readFile(file, 'utf8');
+    const base = path.dirname(file);
+    let out = '', last = 0;
+    for (const m of src.matchAll(ref)) {
+      const url = m[2];
+      const target = url.startsWith('/') ? path.join(OUT, url) : path.resolve(base, url);
+      const h = await hashOf(target);
+      out += src.slice(last, m.index) + m[1] + url + (h ? `?v=${h}` : '');
+      last = m.index + m[0].length;
+    }
+    out += src.slice(last);
+    if (out !== src) await fs.writeFile(file, out);
+  }
+}
+
 async function main() {
   const data = await loadData();
   await loadCSS();
@@ -687,6 +715,7 @@ async function main() {
   const b = data.business;
   await write('llms.txt', `# ${b.legalName}\n\n> ${b.summary}\n\n- Owner: ${b.founder}\n- Phone: ${b.phone}\n- Based in: ${b.city}, ${b.state}\n- Service area: every town within ${b.serviceRadiusMiles || 30} miles of Palatine, IL, including ${data.towns.map((t) => t.name).join(', ')}\n- Typical timelines: bathroom remodel 3–5 weeks on site; kitchen remodel 6–10 weeks on site\n\n## Services\n${data.services.map((s) => `- [${s.name}](${site}/${s.slug}/): ${s.short}`).join('\n')}\n\n## Pages\n- [Projects](${site}/projects/): finished remodels with town, scope, materials and duration\n- [Reviews](${site}/#reviews): ratings and reviews from Google, Yelp, Angi, Houzz and others, linked to their sources\n- [Service area](${site}/service-area/)\n- [Contact card for ${b.founder}](${site}/card/)\n${data.projects.length ? `\n## Recent projects\n${data.projects.slice(0, 10).map((p) => `- [${p.title}](${site}/projects/${p.slug}/): ${p.summary || ''}`).join('\n')}\n` : ''}`);
 
+  await versionAssets();
   console.log(`Built ${pages.length} pages into ${path.relative(ROOT, OUT)}/ (${data.projects.length} projects, ${data.reviews.length} reviews${SAMPLES ? ', samples included' : ''})`);
 }
 
