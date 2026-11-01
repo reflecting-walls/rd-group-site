@@ -50,7 +50,7 @@ p { margin: 0; }
 .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(250, 250, 248, .92); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
 .header-row { display: flex; align-items: center; gap: 2rem; min-height: 5rem; }
 .brand { display: block; margin-right: auto; line-height: 0; }
-.brand img { height: 3.4rem; width: auto; }
+.brand img { height: 3rem; width: auto; }
 .nav { display: flex; gap: 2rem; }
 .nav a { text-decoration: none; font-size: .8rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); padding-block: .5rem; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); border-color: var(--brass); }
@@ -66,7 +66,7 @@ p { margin: 0; }
   .nav a { padding-block: 1rem; border-bottom: 1px solid var(--line); font-size: .9rem; }
   .menu-toggle { display: block; }
 }
-@media (max-width: 560px) { .header-cta { display: none; } .brand img { height: 2.9rem; } }
+@media (max-width: 560px) { .header-cta { display: none; } .brand img { height: 2.5rem; } }
 
 /* Media frames: real photos, or a material swatch until photos are uploaded */
 .frame { position: relative; overflow: hidden; background: var(--stone); aspect-ratio: 4 / 5; max-width: 100%; }
@@ -212,7 +212,7 @@ a.source:hover { background: #191C1F; }
 .footer-grid a { text-decoration: none; }
 .footer-grid a:hover { color: var(--on-night); }
 .footer-brand { display: grid; gap: 1.25rem; max-width: 22rem; align-content: start; }
-.footer-brand img { height: 3.6rem; width: auto; }
+.footer-brand img { height: 3.2rem; width: auto; }
 .footer-base { border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-block: 1.5rem; font-size: .8rem; }
 .footer-base .credit { flex-basis: 100%; opacity: .75; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-brand { grid-column: 1 / -1; } }
