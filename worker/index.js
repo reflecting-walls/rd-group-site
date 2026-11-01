@@ -24,6 +24,7 @@ async function estimate(request, env, url) {
 
   const d = {};
   for (const [k, max] of Object.entries(FIELDS)) d[k] = String(body[k] ?? '').trim().slice(0, max);
+  if (!d.message && body.details) d.message = String(body.details).trim().slice(0, FIELDS.message);
   if (!d.name || !d.phone) return json({ error: 'Name and phone are required' }, 400);
 
   const to = env.ESTIMATE_TO, from = env.ESTIMATE_FROM;

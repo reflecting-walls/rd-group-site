@@ -384,7 +384,7 @@
       const endpoint = d.actions?.formEndpoint;
       if (endpoint) {
         try {
-          const r = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ ...f, source: "digital-card" }) });
+          const r = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ ...f, message: f.details || "", page: location.pathname, source: "digital-card" }) });
           if (!r.ok) throw 0;
           form.reset(); msg.textContent = "Thanks! Your request was sent."; track("estimate_sent"); return;
         } catch { msg.textContent = "Couldn't send online, opening a text message instead."; }
