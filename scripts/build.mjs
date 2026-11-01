@@ -477,7 +477,7 @@ ${reviewsSection(c)}
     <div class="about-copy">
       <p class="label">About RD Group</p>
       <h2 class="h-lg">Owner-run. Rafal is on every job.</h2>
-      <p>RD Group, Inc. is owned and run by ${esc(b.founder)}. He meets every client, walks every job, and signs off on the work before the final walkthrough. Rafal does the work himself and takes on a limited number of remodels at a time, so the schedule in your quote is one we can keep.</p>
+      <p>RD Group, Inc. is owned and run by ${esc(b.founder)}. He meets every client, walks every job, and signs off on the work before the final walkthrough. He does most of the work himself, brings in licensed plumbers, electricians and other tradesmen when needed, and takes on a limited number of remodels at a time, so the schedule in your quote is one we can keep.</p>
       <p>Most of our work is full kitchen and bathroom remodels in Palatine, Arlington Heights, Inverness and the surrounding Northwest Suburbs. Past clients also call us for basements, flooring, tile and the other projects a house needs.</p>
       <dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
     </div>
