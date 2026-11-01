@@ -241,7 +241,7 @@ function footer(c) {
     <div><h4>Contact</h4><ul><li><a href="tel:${esc(b.phoneE164)}">${esc(b.phone)}</a></li>${b.email ? `<li><a href="mailto:${esc(b.email)}">${esc(b.email)}</a></li>` : ''}<li>${esc(b.city)}, ${esc(b.state)}</li>${hours}<li><a href="${c.u('/card/')}">Rafal's digital card</a></li></ul></div>
   </div>
   <div class="wrap footer-base">
-    <span>© ${new Date().getFullYear()} ${esc(b.legalName)}${b.license ? ` · License ${esc(b.license)}` : ''} · Licensed &amp; insured</span>
+    <span>© ${new Date().getFullYear()} ${esc(b.legalName)}${b.foundedYear ? ` · Established ${esc(b.foundedYear)}` : ''} · Fully insured</span>
     <span><a href="${c.u('/#reviews')}">Reviews</a> · <a href="${c.u('/service-area/')}">Service area</a></span>
     <span class="credit">Site Developed and Maintained by <a href="https://rwmediapros.com/" target="_blank" rel="noopener">RW Media</a></span>
   </div>
@@ -274,7 +274,6 @@ function businessLD(c) {
     description: b.summary,
     founder: { '@type': 'Person', name: b.founder, jobTitle: 'Owner', url: b.website + '/card/' },
     ...(b.foundedYear ? { foundingDate: String(b.foundedYear) } : {}),
-    ...(b.license ? { hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Contractor license', identifier: String(b.license) } } : {}),
     address: { '@type': 'PostalAddress', addressLocality: b.city, addressRegion: b.state, ...(b.streetAddress ? { streetAddress: b.streetAddress } : {}), ...(b.postalCode ? { postalCode: b.postalCode } : {}), addressCountry: 'US' },
     geo: b.geo ? { '@type': 'GeoCoordinates', latitude: b.geo.latitude, longitude: b.geo.longitude } : undefined,
     areaServed: [
@@ -418,7 +417,7 @@ function pageHome(c) {
   const description = `RD Group, Inc. remodels kitchens and bathrooms in Palatine and the Northwest Suburbs. Owner-run by Rafal Dmochowski. Free in-home consultation and fixed written quote. Call ${b.phone}.`;
   const facts = [
     b.yearsExperience && ['Years building', b.yearsExperience + '+'],
-    !b.yearsExperience && b.foundedYear && ['Founded', String(b.foundedYear)],
+    !b.yearsExperience && b.foundedYear && ['Established', String(b.foundedYear)],
     b.projectsCompleted && ['Projects completed', b.projectsCompleted + '+'],
     ['Bath remodel', '3–5 wks'],
     ['Kitchen remodel', '6–10 wks'],
@@ -439,7 +438,7 @@ function pageHome(c) {
       <div class="rating-chips">
         ${o ? `<span><b>${o.avg.toFixed(1)}</b> <span class="stars">★★★★★</span> from ${o.count} reviews</span>` : ''}
         ${c.data.sources.filter((s) => s.rating).map((s) => `<a href="#reviews"><b>${Number(s.rating).toFixed(1)}</b> ${esc(s.name)}</a>`).join('')}
-        <span>Licensed &amp; insured</span><span>Free consultation</span>
+        ${b.foundedYear ? `<span>Established ${esc(b.foundedYear)}</span>` : ''}<span>Fully insured</span><span>Free consultation</span>
       </div>
     </div>
     <div id="estimate">${quoteForm(c, 'hero-form')}</div>

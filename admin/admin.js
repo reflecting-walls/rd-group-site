@@ -89,7 +89,6 @@
       var todo = [];
       if (!biz.email) todo.push(['Add the new business email', '#settings']);
       if (!biz.formEndpoint) todo.push(['Connect the estimate form to email', '#settings']);
-      if (!biz.license) todo.push(['Add the license number', '#settings']);
       sources.forEach(function (s) { if (!s.profile_url) todo.push(['Add the ' + s.name + ' profile link', '#reviews']); if (!s.rating) todo.push(['Add the ' + s.name + ' rating and review count', '#reviews']); });
       if (projects.some(function (p) { return p.sample; })) todo.push(['Replace the sample projects with real ones', '#projects']);
       if (reviews.some(function (x) { return x.sample; })) todo.push(['Replace the sample reviews with real ones', '#reviews']);
@@ -429,7 +428,7 @@
         field('formEndpoint', 'Estimate form address', b.formEndpoint, { full: true, placeholder: '/api/estimate', help: 'Where the website\u2019s estimate form sends requests. Keep /api/estimate: the site emails each request through Cloudflare Email Routing (recipient set in wrangler.jsonc). Leave empty to make the form ask visitors to call.' }) +
         field('streetAddress', 'Street address', b.streetAddress, { placeholder: 'Optional, hidden if blank' }) + field('city', 'City', b.city) + field('state', 'State', b.state) + field('postalCode', 'ZIP code', b.postalCode, { placeholder: '60067' }) +
         '</div></section><section class="panel"><h2>Credentials</h2><div class="grid-3">' +
-        field('license', 'License number', b.license) + field('foundedYear', 'Year founded', b.foundedYear) + field('yearsExperience', 'Years of experience', b.yearsExperience) +
+        field('foundedYear', 'Year founded', b.foundedYear) + field('yearsExperience', 'Years of experience', b.yearsExperience) +
         field('projectsCompleted', 'Projects completed', b.projectsCompleted) + field('warrantyYears', 'Warranty (years)', b.warrantyYears) + field('priceRange', 'Price range', b.priceRange, { type: 'select', options: ['$$', '$$$', '$$$$'] }) +
         field('kitchenCostRange', 'Typical kitchen remodel cost', b.kitchenCostRange, { placeholder: '$45,000 to $95,000', help: 'Shown in the kitchen cost FAQ. Search engines and AI assistants quote real numbers.' }) + field('bathroomCostRange', 'Typical bathroom remodel cost', b.bathroomCostRange, { placeholder: '$25,000 to $55,000', help: 'Shown in the bathroom cost FAQ.' }) +
         '</div><p class="muted small">Numbers you fill in here appear on the home page. Blank ones stay hidden.</p></section>' +
