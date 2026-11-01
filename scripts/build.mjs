@@ -207,7 +207,7 @@ function header(c, active) {
 <div class="topbar"><div class="wrap"><span class="hours">${esc(hours)}</span><a href="tel:${esc(b.phoneE164)}">Call Rafal · ${esc(b.phone)}</a></div></div>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="brand" href="${c.u('/')}" aria-label="${esc(b.legalName)} home"><img src="${c.u('/assets/logo/rd-logo.svg')}" alt="${esc(b.legalName)}" width="514" height="124"></a>
+    <a class="brand" href="${c.u('/')}" aria-label="${esc(b.legalName)} home"><img src="${c.u('/assets/logo/rd-logo.svg')}" alt="${esc(b.legalName)}" width="591" height="187"></a>
     <nav class="nav" id="nav" aria-label="Main">
       ${nav.map(([href, label]) => `<a href="${c.u(href)}"${active === href ? ' aria-current="page"' : ''}>${label}</a>`).join('\n      ')}
     </nav>
@@ -226,7 +226,7 @@ function footer(c) {
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="${c.u('/assets/logo/rd-logo-reversed.svg')}" alt="${esc(b.legalName)}" width="514" height="124" loading="lazy">
+      <img src="${c.u('/assets/logo/rd-logo-reversed.svg')}" alt="${esc(b.legalName)}" width="591" height="187" loading="lazy">
       <p>${esc(b.summary)}</p>
     </div>
     <div><h4>Services</h4><ul>${services.map((s) => `<li><a href="${c.u('/' + s.slug + '/')}">${esc(s.name)}</a></li>`).join('')}<li><a href="${c.u('/projects/')}">Project gallery</a></li></ul></div>
