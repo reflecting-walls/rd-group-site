@@ -397,7 +397,7 @@ function faqBlock(faqs, heading = 'Questions homeowners ask') {
 const processSteps = [
   ['Consultation', 'Rafal visits, measures and talks through how you want the room to work. Free, usually within a week of your call.'],
   ['Written quote', 'An itemized scope and fixed price a few days later, with a realistic start date.'],
-  ['Build', 'Permits pulled, materials ordered, then one crew on site from demolition to finish, with the work area sealed and cleaned daily.'],
+  ['Build', 'Permits pulled, materials ordered, then Rafal on site himself from demolition to finish, with the work area sealed and cleaned daily.'],
   ['Walkthrough', 'We go through the finished room together, close out the punch list and pass final inspection.'],
 ];
 const processBlock = () => `<section class="band band-stone">
@@ -477,7 +477,7 @@ ${reviewsSection(c)}
     <div class="about-copy">
       <p class="label">About RD Group</p>
       <h2 class="h-lg">Owner-run. Rafal is on every job.</h2>
-      <p>RD Group, Inc. is owned and run by ${esc(b.founder)}. He meets every client, walks every job, and signs off on the work before the final walkthrough. We keep a small, steady crew and take on a limited number of remodels at a time, so the schedule in your quote is one we can keep.</p>
+      <p>RD Group, Inc. is owned and run by ${esc(b.founder)}. He meets every client, walks every job, and signs off on the work before the final walkthrough. Rafal does the work himself and takes on a limited number of remodels at a time, so the schedule in your quote is one we can keep.</p>
       <p>Most of our work is full kitchen and bathroom remodels in Palatine, Arlington Heights, Inverness and the surrounding Northwest Suburbs. Past clients also call us for basements, flooring, tile and the other projects a house needs.</p>
       <dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
     </div>
